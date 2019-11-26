@@ -1,0 +1,15 @@
+logs
+*.log
+npm-debug.log*
+.DS_Store
+
+coverage
+node_modules
+build
+dist
+public/static
+.env.*.local
+.next
+keys
+.env
+now.json
