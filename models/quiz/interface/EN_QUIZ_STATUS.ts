@@ -1,4 +1,6 @@
 export enum EN_QUIZ_STATUS {
+  /** 데이터 수신 요청(최초) */
+  INIT = 'INIT',
   /** 준비중 */
   PREPARE = 'PREPARE',
   /** 대기중 */
