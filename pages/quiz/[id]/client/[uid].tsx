@@ -4,7 +4,10 @@ import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 
 import { useAuth } from '../../../../components/auth/hooks/auth_hooks';
-import { useStoreDoc } from '../../../../components/auth/hooks/firestore_hooks';
+import {
+  useStoreDoc,
+  useParticipantStoreDoc,
+} from '../../../../components/auth/hooks/firestore_hooks';
 import SlLayout from '../../../../components/layout';
 import QuizDisplay from '../../../../components/quiz/display';
 import QuizStatus from '../../../../components/quiz/status';
@@ -12,7 +15,10 @@ import getStringValueFromQuery from '../../../../controllers/etc/get_value_from_
 import { EN_QUIZ_STATUS } from '../../../../models/quiz/interface/EN_QUIZ_STATUS';
 import { QuizOperation } from '../../../../models/quiz/interface/I_quiz_operation';
 import { QuizParticipant } from '../../../../models/quiz/interface/I_quiz_participant';
-import { findParticipantsForClient } from '../../../../models/quiz/participants.client.service';
+import {
+  findParticipantsForClient,
+  updateParticipantsForClient,
+} from '../../../../models/quiz/participants.client.service';
 
 const log = debug('tjl:page:quiz-client');
 
@@ -26,11 +32,22 @@ interface Props {
   participantInfo?: QuizParticipant;
 }
 
-const initData: QuizOperation = { status: EN_QUIZ_STATUS.INIT, title: '데이터 수신 중' };
+const initData: QuizOperation = {
+  status: EN_QUIZ_STATUS.INIT,
+  title: '데이터 수신 중',
+  total_participants: 0,
+  alive_participants: 0,
+};
+const defaultParticipantData: QuizParticipant = { join: '2019-11-27T09:00:00+09:00', alive: false };
 
 /** 개별 클라이언트(실제 참여자 사용) */
 const QuizClient: NextPage<Props> = ({ id, uid, participantInfo }) => {
   const { docValue: info } = useStoreDoc({ collectionPath: 'quiz', docPath: id });
+  const { docValue: participantInfoFromLive } = useParticipantStoreDoc({
+    uid,
+    collectionPath: 'quiz',
+    docPath: id,
+  });
   const { initializing, haveUser, user } = useAuth();
   const operationInfo: QuizOperation = (() => {
     if (info === undefined) {
@@ -41,6 +58,16 @@ const QuizClient: NextPage<Props> = ({ id, uid, participantInfo }) => {
       return dataFromFireStore as QuizOperation;
     }
     return initData;
+  })();
+  const useParticipantInfo = (() => {
+    if (participantInfo && participantInfoFromLive === undefined) {
+      return participantInfo;
+    }
+    if (participantInfoFromLive) {
+      const data = participantInfoFromLive.data();
+      return data as QuizParticipant;
+    }
+    return defaultParticipantData;
   })();
 
   const { printTitle, letItGo } = (() => {
@@ -54,16 +81,27 @@ const QuizClient: NextPage<Props> = ({ id, uid, participantInfo }) => {
     if (haveUser && user && user.uid !== uid) {
       return { printTitle: '정상적인 접근이 아닙니다. 빠염', letItGo: false };
     }
+
+    if (participantInfoFromLive === undefined) {
+      return { printTitle: '참가 정보 확인 수신 중', letItGo: false };
+    }
     return { printTitle: '', letItGo: true };
   })();
+  console.log(letItGo);
   const status = QuizStatus({ status: operationInfo.status, title: operationInfo.title });
   const quizInfo = QuizDisplay({
-    possiblePlayer: false,
+    possiblePlayer: useParticipantInfo.alive,
     status: operationInfo.status,
     info: operationInfo,
-    handleClick: ({ no, quiz_id }) => {
+    handleClick: async ({ no, quiz_id }) => {
       log({ no, quiz_id });
       console.log({ no, quiz_id });
+      await updateParticipantsForClient({
+        uid,
+        quiz_id: id,
+        info: { currentQuizID: quiz_id, select: no },
+        isServer: false,
+      });
     },
   });
   return (

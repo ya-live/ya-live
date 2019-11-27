@@ -16,7 +16,12 @@ interface Props {
   id: string;
 }
 
-const initData: QuizOperation = { status: EN_QUIZ_STATUS.INIT, title: '데이터 수신 중' };
+const initData: QuizOperation = {
+  status: EN_QUIZ_STATUS.INIT,
+  title: '데이터 수신 중',
+  total_participants: 0,
+  alive_participants: 0,
+};
 
 /** 참가확인용 */
 const QuizJoin: NextPage<Props> = ({ id }) => {

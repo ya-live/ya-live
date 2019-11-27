@@ -37,6 +37,25 @@ const QuizDisplay: React.FunctionComponent<Props> = ({
   const selectors = info?.quiz_selector
     ?.sort((a, b) => a.no - b.no)
     .map((mv) => <Radio value={mv.no}>{mv.title}</Radio>);
+  const correct_answer = info?.quiz_correct_answer;
+  const myResult = (() => {
+    if (status === EN_QUIZ_STATUS.SHOW_RESULT && correct_answer && selectedNo !== 0) {
+      return {
+        status: true,
+        result: selectedNo === correct_answer,
+      };
+    }
+    return { status: false, result: false };
+  })();
+  const answerDisplay = (() => {
+    if (myResult.status && myResult.result) {
+      return <p>결과 : 정답</p>;
+    }
+    if (myResult.status && myResult.result === false) {
+      return <p>결과 : 땡 탈락!</p>;
+    }
+    return null;
+  })();
 
   return (
     <div>
@@ -53,6 +72,7 @@ const QuizDisplay: React.FunctionComponent<Props> = ({
       >
         {selectors}
       </Radio.Group>
+      {answerDisplay}
     </div>
   );
 };

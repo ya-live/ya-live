@@ -29,7 +29,7 @@ function getPrintTitle({ status, title }: { status: EN_QUIZ_STATUS; title: strin
   }
 
   if (status === EN_QUIZ_STATUS.SHOW_RESULT) {
-    return title;
+    return '정답 공개';
   }
 
   if (status === EN_QUIZ_STATUS.CALCULATE) {
