@@ -8,6 +8,8 @@ export interface QuizOperation {
   /** 제목? 노출할 글자? */
   title?: string;
 
+  /** 퀴즈 id(각 퀴즈를 구분하는 값) */
+  quiz_id?: string;
   /** 퀴즈 타입 */
   quiz_type?: EN_QUIZ_TYPE;
   /** 퀴즈 설명 */
