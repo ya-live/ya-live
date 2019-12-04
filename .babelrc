@@ -5,10 +5,10 @@
       "next/babel",
       {
         "preset-env": {
+          "corejs": 3,
           "useBuiltIns": "entry"
         }
       }
-    ],
-    "@zeit/next-typescript/babel"
+    ]
   ]
 }
