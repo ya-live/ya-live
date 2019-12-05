@@ -1,7 +1,111 @@
+@import 'https://unpkg.com/@kfonts/nanum-square/index.css';
 
 @font-face {
   font-family: 'YanoljaSans';
   src: url('/yanolja_font.woff'), url('/yanolja_font.ttf');
+}
+:root {
+  --gray50: #f8f8f8;
+  --gray100: #f2f2f2;
+  --gray200: #e6e6e6;
+  --gray300: #d9d9d9;
+  --gray400: #cccccc;
+  --gray500: #ababab;
+  --gray600: #919191;
+  --gray700: #616161;
+  --gray800: #2e2e2e;
+  --gray900: #1a1a1a;
+  --yapink50: #fdf4f7;
+  --yapink100: #fadee6;
+  --yapink200: #f3b1c4;
+  --yapink300: #ec86a2;
+  --yapink400: #e55b81;
+  --yapink500: #de2e5f;
+  --yapink600: #ba1e4a;
+  --yapink700: #8f1738;
+  --yapink800: #791330;
+  --yapink900: #631027;
+  --yablue50: #e5f6ff;
+  --yablue100: #b2e3ff;
+  --yablue200: #65c8ff;
+  --yablue300: #18abff;
+  --yablue400: #0393e5;
+  --yablue500: #0152cc;
+  --yablue600: #016398;
+  --yablue700: #01527f;
+  --yablue800: #004165;
+  --yablue900: #00314c;
+  --yagreen50: #e7fff9;
+  --yagreen100: #b4ffec;
+  --yagreen200: #67ffd8;
+  --yagreen300: #02cd9b;
+  --yagreen400: #009a74;
+  --yagreen500: #008161;
+  --yagreen600: #00674e;
+  --yagreen700: #004e3b;
+  --yagreen800: #003327;
+  --yagreen900: #001a14;
+  --yapurple50: #f1e8f9;
+  --yapurple100: #e5d5f3;
+  --yapurple200: #ccade7;
+  --yapurple300: #b386dd;
+  --yapurple400: #9a5ed2;
+  --yapurple500: #8e4acc;
+  --yapurple600: #7431b1;
+  --yapurple700: #5a2789;
+  --yapurple800: #401a61;
+  --yapurple900: #33164e;
+  --yayellow50: #fff8e3;
+  --yayellow100: #ffebb0;
+  --yayellow200: #ffde7d;
+  --yayellow300: #ffd14a;
+  --yayellow400: #ffc417;
+  --yayellow500: #fdbd00;
+  --yayellow600: #ca9700;
+  --yayellow700: #977100;
+  --yayellow800: #644b00;
+  --yayellow900: #4a3801;
+  --yaorange50: #fff2e6;
+  --yaorange100: #ffc999;
+  --yaorange200: #ffb066;
+  --yaorange300: #ff9733;
+  --yaorange400: #ff7b00;
+  --yaorange500: #e67000;
+  --yaorange600: #cc6300;
+  --yaorange700: #b35600;
+  --yaorange800: #803e00;
+  --yaorange900: #663100;
+  --yared50: #fff4f5;
+  --yared100: #fec6cf;
+  --yared200: #fe94a6;
+  --yared300: #fd627c;
+  --yared400: #fc2e52;
+  --yared500: #dc0328;
+  --yared600: #a9021e;
+  --yared700: #8f011a;
+  --yared800: #760115;
+  --yared900: #5c0011;
+  --opacity50: rgba(0, 0, 0, 0.03);
+  --opacity100: rgba(0, 0, 0, 0.05);
+  --opacity200: rgba(0, 0, 0, 0.09);
+  --opacity300: rgba(0, 0, 0, 0.15);
+  --opacity400: rgba(0, 0, 0, 0.2);
+  --opacity500: rgba(0, 0, 0, 0.33);
+  --opacity600: rgba(0, 0, 0, 0.43);
+  --opacity700: rgba(0, 0, 0, 0.62);
+  --opacity800: rgba(0, 0, 0, 0.82);
+  --opacity900: rgba(0, 0, 0, 0.9);
+  --white: #ffffff;
+  --black: #000000;
+}
+
+*::selection {
+  background: var(--opacity600) !important;
+  color: #fff !important;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 div#__next {
@@ -10,4 +114,6 @@ div#__next {
 
 body {
   height: 100%;
+  font-size: 1rem;
+  font-family: '나눔스퀘어', sans-serif;
 }

@@ -17,6 +17,8 @@ module.exports = withCSS({
     sourceMap: isDev,
   },
   webpack: (config) => {
+    config.resolve.alias['@'] = __dirname;
+
     config.plugins = config.plugins || [];
     config.plugins = [
       ...config.plugins,

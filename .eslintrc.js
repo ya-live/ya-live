@@ -5,6 +5,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
+    'prettier/react',
     'prettier/@typescript-eslint',
   ],
   plugins: ['@typescript-eslint', 'prettier', 'react-hooks'],
@@ -26,14 +27,14 @@ module.exports = {
     Cypress: true,
   },
   rules: {
-    'arrow-parens': [2, "always"],
+    'arrow-parens': [2, 'always'],
     '@typescript-eslint/no-unused-vars': [
       1,
       {
         argsIgnorePattern: 'res|next|stage|^err|on|config|e',
       },
     ],
-    'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false, }],
+    'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false }],
     'no-param-reassign': [
       2,
       {
@@ -63,8 +64,9 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
     'import/no-cycle': 0,
-    'space-before-function-paren': 0,
     'import/extensions': 0,
+    'import/no-unresolved': 0,
+    'space-before-function-paren': 0,
     'react/jsx-one-expression-per-line': 0,
     'react/no-danger': 0,
     'react/display-name': 1,
