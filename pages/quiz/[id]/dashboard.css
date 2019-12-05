@@ -1,0 +1,10 @@
+.yanolja {
+  color: var(--yapink500);
+  font-size: 2.4rem;
+  font-weight: 300;
+  padding-top: 1.6rem;
+  text-align: center;
+}
+.yanolja strong {
+  font-family: 'YanoljaSans', sans-serif;
+}

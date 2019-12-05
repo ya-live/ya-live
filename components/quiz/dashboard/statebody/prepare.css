@@ -1,0 +1,26 @@
+.container {
+  height: 100%;
+  background: var(--yablack100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heading {
+  color: var(--yapink500);
+  font-size: 8.4rem;
+  font-family: 'YanoljaSans', sans-serif;
+  font-weight: 900; /* fallback */
+  margin-bottom: 0;
+}
+
+.caption {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+.highlight {
+  background: var(--yapink500);
+}

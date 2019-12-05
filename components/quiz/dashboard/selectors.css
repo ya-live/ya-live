@@ -1,0 +1,31 @@
+.container {
+  list-style: none;
+  margin-top: 6rem;
+  padding: 0 6rem;
+}
+
+@keyframes option-highlight {
+  0% {
+    background: none;
+  }
+  100% {
+    background: var(--yayellow500);
+  }
+}
+
+.option {
+  width: 100%;
+  border: 0.1rem solid var(--gray300);
+  border-radius: 0.4rem;
+  font-size: 3.6rem;
+  padding: 0.7rem 0 0.9rem;
+  text-align: center;
+}
+.option + .option {
+  margin-top: 2.4rem;
+}
+
+.correctOption {
+  composes: option;
+  animation: option-highlight 500ms ease infinite alternate;
+}
