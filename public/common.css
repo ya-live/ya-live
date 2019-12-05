@@ -1,0 +1,13 @@
+
+@font-face {
+  font-family: 'YanoljaSans';
+  src: url('/yanolja_font.woff'), url('/yanolja_font.ttf');
+}
+
+div#__next {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
