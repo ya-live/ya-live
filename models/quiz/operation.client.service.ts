@@ -45,3 +45,24 @@ export async function findAllQuizFromBankForClient(args: { quiz_id: string; isSe
     };
   }
 }
+
+/** 퀴즈가 끝나면, 탈락자 처리를 진행한다. */
+export async function calculateQuizRound(args: { festivalId: string; isServer: boolean }) {
+  const { isServer } = args;
+  const hostAndPort: string = getBaseUrl(isServer);
+  const url = `${hostAndPort}/api/quiz/${args.festivalId}/calculate`;
+
+  try {
+    const resp = await requester<QuizOperation | null>({
+      option: {
+        url,
+        method: 'post',
+      },
+    });
+    return resp;
+  } catch (err) {
+    return {
+      status: 500,
+    };
+  }
+}
