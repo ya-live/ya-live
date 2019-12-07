@@ -6,6 +6,8 @@ import quizOpsModel from '../models/quiz/operation.model';
 import { QuizParticipant } from '../models/quiz/interface/I_quiz_participant';
 import { QuizOperation } from '../models/quiz/interface/I_quiz_operation';
 import getStringValueFromQuery from './etc/get_value_from_query';
+import validateParamWithData from '../models/commons/req_validator';
+import JSCQuizCalculate from '../models/quiz/jsc/quiz.calculate.jsc';
 
 const log = debug('tjl:controller:quiz');
 
@@ -110,4 +112,39 @@ async function findAllQuizFromBank({
   return res.json(resp);
 }
 
-export default { findParticipant, updateParticipant, updateOperationInfo, findAllQuizFromBank };
+/** 정산하기 */
+async function calculateRound({
+  query,
+  res,
+}: {
+  query: NextApiRequest['query'];
+  res: NextApiResponse;
+}) {
+  const festivalId = getStringValueFromQuery({ query, field: 'quiz_id' });
+  if (festivalId === undefined) {
+    return res.status(400).end();
+  }
+
+  const { result, data } = validateParamWithData<{ id: string }>(
+    { id: festivalId },
+    JSCQuizCalculate,
+  );
+  if (!result) {
+    return res.status(400).end();
+  }
+
+  const resp = await quizOpsModel.saveDeadStatus({ festivalId: data.id });
+  log('[calculateRound]: ', resp);
+  if (resp === null) {
+    return res.status(500).end();
+  }
+  return res.json(resp);
+}
+
+export default {
+  findParticipant,
+  updateParticipant,
+  updateOperationInfo,
+  findAllQuizFromBank,
+  calculateRound,
+};
