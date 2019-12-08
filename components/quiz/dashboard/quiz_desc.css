@@ -1,0 +1,14 @@
+.quizImage {
+  max-width: 100%;
+  max-height: 32rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.quizText {
+  color: var(--opacity800);
+  font-size: 3.3rem;
+  margin-top: 2.4rem;
+  text-align: center;
+  word-break: keep-all;
+}
