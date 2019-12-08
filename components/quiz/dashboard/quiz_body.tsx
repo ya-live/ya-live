@@ -89,7 +89,7 @@ const QuizBody: React.FC = () => {
       setAnswers([0, 0, 0, 0, 0]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [answers, id, quiz.status]);
+  }, [id, quiz.status]);
 
   const coverActive = isItCoverable(quiz.status);
 
