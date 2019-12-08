@@ -9,14 +9,13 @@ import FirebaseAuthClient from '@/models/commons/firebase_auth_client.model';
 import { QuizParticipant } from '@/models/quiz/interface/I_quiz_participant';
 import Countdown, { COUNTDOWN } from './countdown';
 
-const isItCoverable = (status: EN_QUIZ_STATUS, quizTime: number): boolean => {
+const isItCoverable = (status: EN_QUIZ_STATUS): boolean => {
   switch (status) {
     case EN_QUIZ_STATUS.QUIZ:
     case EN_QUIZ_STATUS.SHOW_RESULT:
-      return false;
     case EN_QUIZ_STATUS.COUNTDOWN:
     case EN_QUIZ_STATUS.CALCULATE:
-      return quizTime < 0;
+      return false;
     default:
       return true;
   }
@@ -90,12 +89,13 @@ const QuizBody: React.FC = () => {
       setAnswers([0, 0, 0, 0, 0]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, quiz.status]);
+  }, [answers, id, quiz.status]);
 
-  const coverActive = isItCoverable(quiz.status, quizTime);
+  const coverActive = isItCoverable(quiz.status);
 
   return (
     <section className={styles.container}>
+      <h1 className={styles.yalive}>yalive</h1>
       <Cover active={coverActive} status={quiz.status} />
       <Countdown
         active={quiz.status === EN_QUIZ_STATUS.COUNTDOWN && quizTime >= 0}

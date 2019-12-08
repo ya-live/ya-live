@@ -6,6 +6,19 @@
   flex-direction: column;
 }
 
+.yalive {
+  color: var(--yapink500);
+  font-family: 'YanoljaSans', sans-serif;
+  font-size: 6.7rem;
+  font-weight: 900;
+  margin: 0 auto;
+  position: absolute;
+  top: 1.6rem;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+
 .wrap {
   width: 80%;
 }

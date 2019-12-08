@@ -8,7 +8,7 @@
 .quizText {
   color: var(--opacity800);
   font-size: 3.3rem;
-  margin-top: 2.4rem;
+  margin-top: 0;
   text-align: center;
   word-break: keep-all;
 }
