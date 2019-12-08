@@ -1,11 +1,13 @@
+import { ParsedUrlQuery } from 'querystring';
+
 import { Button } from 'antd';
 import { DateTime } from 'luxon';
 import { NextPage } from 'next';
-import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 
 import { useAuth } from '../../../components/auth/hooks/auth_hooks';
 import { useStoreDoc } from '../../../components/auth/hooks/firestore_hooks';
+import Container from '../../../components/common/Container';
 import SlLayout from '../../../components/layout';
 import getStringValueFromQuery from '../../../controllers/etc/get_value_from_query';
 import { EN_QUIZ_STATUS } from '../../../models/quiz/interface/EN_QUIZ_STATUS';
@@ -84,7 +86,7 @@ const QuizJoin: NextPage<Props> = ({ id }) => {
     );
   }
 
-  return <SlLayout>{operationInfo.status}</SlLayout>;
+  return <Container>hihi</Container>;
 };
 
 QuizJoin.getInitialProps = async (ctx) => {
