@@ -1,0 +1,32 @@
+.countdown {
+  background: #fff;
+  border-bottom: 0.8rem solid var(--yapink500);
+  border-radius: 0 0 1.6rem 1.6rem;
+  box-shadow: 0 0 8px var(--opacity600);
+  font-size: 3.8rem;
+  font-weight: 900;
+  overflow: hidden;
+  padding: 1.2rem 0 0.4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+.countdown > span {
+  position: relative;
+  z-index: 1;
+}
+
+.meter {
+  background: var(--yapink500);
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 175ms ease;
+}

@@ -90,15 +90,7 @@ module.exports = {
         avoidEscape: true,
       },
     ],
-    'prettier/prettier': [
-      'error',
-      {
-        trailingComma: 'es5',
-        semi: true,
-        singleQuote: true,
-        printWidth: 100,
-      },
-    ],
+    'prettier/prettier': 'error',
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/anchor-is-valid': [
       'warn',

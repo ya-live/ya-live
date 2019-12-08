@@ -4,7 +4,6 @@ import React from 'react';
 import { useAuth } from '../components/auth/hooks/auth_hooks';
 import Container from '../components/common/Container';
 import Loading from '../components/common/Loading';
-import YaHead from '../components/common/YaHead';
 import LoginComplete from '../components/login/complete';
 import Login from '../components/login/login';
 
@@ -16,7 +15,6 @@ const IndexPage: NextPage = () => {
 
   return (
     <>
-      <YaHead />
       <Container>
         {haveUser ? (
           <LoginComplete displayName={user?.displayName} email={user?.email} />
