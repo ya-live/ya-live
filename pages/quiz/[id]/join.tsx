@@ -76,6 +76,8 @@ const QuizJoin: NextPage<Props> = ({ id }) => {
               .set({
                 join: DateTime.local().toISO(),
                 alive: true,
+                id: user.uid,
+                displayName: user.displayName,
               });
             window.location.href = `/quiz/${id}/client/${user.uid}`;
           }}
