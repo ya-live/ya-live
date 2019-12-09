@@ -90,8 +90,10 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
                   status: EN_QUIZ_STATUS.CALCULATE,
                 },
               });
+              // 정답 공개 flag false로 전환
+              updatePubCorrectAnswerStatus(false);
               updateStatusChangeLoader(false);
-            }, 10000);
+            }, 11000);
           }
           updateStatusChangeLoader(false);
         }}
