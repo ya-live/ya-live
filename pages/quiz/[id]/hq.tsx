@@ -200,8 +200,16 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
       return (
         <Button
           type="primary"
-          onClick={() => {
-            message.info('오답자 계산하는 api 콜을 한다');
+          onClick={async () => {
+            const resp = await opsService.calculateQuizRound({
+              festivalId: id,
+              isServer: false,
+            });
+            if (resp === null) {
+              message.warn('정산 실패!!!');
+              return;
+            }
+            message.success('정산 완료');
           }}
         >
           오답자 계산
