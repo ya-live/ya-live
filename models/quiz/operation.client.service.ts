@@ -66,3 +66,27 @@ export async function calculateQuizRound(args: { festivalId: string; isServer: b
     };
   }
 }
+
+/** 탈락자가 많이 발생했을 때, 부활 */
+export async function reviveCurrentRoundParticipants(args: {
+  festivalId: string;
+  isServer: boolean;
+}) {
+  const { isServer } = args;
+  const hostAndPort: string = getBaseUrl(isServer);
+  const url = `${hostAndPort}/api/quiz/${args.festivalId}/revive`;
+
+  try {
+    const resp = await requester<QuizOperation | null>({
+      option: {
+        url,
+        method: 'post',
+      },
+    });
+    return resp;
+  } catch (err) {
+    return {
+      status: 500,
+    };
+  }
+}

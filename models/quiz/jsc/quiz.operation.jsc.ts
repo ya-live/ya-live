@@ -1,7 +1,7 @@
 import { JSONSchema6 } from 'json-schema';
 
-const JSCQuizCalculate: JSONSchema6 = {
-  description: '라운드 정산',
+const JSCQuizOperation: JSONSchema6 = {
+  description: '퀴즈 운영',
   properties: {
     id: {
       type: 'string',
@@ -10,4 +10,4 @@ const JSCQuizCalculate: JSONSchema6 = {
   required: ['id'],
 };
 
-export default JSCQuizCalculate;
+export default JSCQuizOperation;

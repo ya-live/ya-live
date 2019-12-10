@@ -7,7 +7,7 @@ import { QuizParticipant } from '../models/quiz/interface/I_quiz_participant';
 import { QuizOperation } from '../models/quiz/interface/I_quiz_operation';
 import getStringValueFromQuery from './etc/get_value_from_query';
 import validateParamWithData from '../models/commons/req_validator';
-import JSCQuizCalculate from '../models/quiz/jsc/quiz.calculate.jsc';
+import JSCQuizOperation from '../models/quiz/jsc/quiz.operation.jsc';
 
 const log = debug('tjl:controller:quiz');
 
@@ -127,7 +127,7 @@ async function calculateRound({
 
   const { result, data } = validateParamWithData<{ id: string }>(
     { id: festivalId },
-    JSCQuizCalculate,
+    JSCQuizOperation,
   );
   if (!result) {
     return res.status(400).end();
@@ -141,10 +141,40 @@ async function calculateRound({
   return res.json(resp);
 }
 
+/** 부활하기 - 많은 참가자가 죽었을 때, 현재 라운드 참가자 모두 부활 */
+async function reviveCurrentRoundParticipants({
+  query,
+  res,
+}: {
+  query: NextApiRequest['query'];
+  res: NextApiResponse;
+}) {
+  const festivalId = getStringValueFromQuery({ query, field: 'quiz_id' });
+  if (festivalId === undefined) {
+    return res.status(400).end();
+  }
+
+  const { result, data } = validateParamWithData<{ id: string }>(
+    { id: festivalId },
+    JSCQuizOperation,
+  );
+  if (!result) {
+    return res.status(400).end();
+  }
+
+  const resp = await quizOpsModel.reviveCurrentRoundParticipants({ festivalId: data.id });
+  log('[revive]: ', resp);
+  if (resp === null) {
+    return res.status(500).end();
+  }
+  return res.json(resp);
+}
+
 export default {
   findParticipant,
   updateParticipant,
   updateOperationInfo,
   findAllQuizFromBank,
   calculateRound,
+  reviveCurrentRoundParticipants,
 };
