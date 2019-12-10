@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useAuth } from '../../../components/auth/hooks/auth_hooks';
 import Container from '../../../components/common/Container';
@@ -17,9 +17,11 @@ interface ClientLoginProps {
 const ClientLoginPage: NextPage<ClientLoginProps> = ({ quizID }) => {
   const { initializing, haveUser, user } = useAuth();
 
-  if (haveUser && user?.uid) {
-    window.location.href = `/quiz/${quizID}/client/${user?.uid}`;
-  }
+  useEffect(() => {
+    if (haveUser && user?.uid) {
+      window.location.href = `/quiz/${quizID}/client/${user?.uid}`;
+    }
+  }, [haveUser, quizID, user]);
 
   return (
     <Container>
