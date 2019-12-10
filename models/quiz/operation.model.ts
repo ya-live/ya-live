@@ -54,22 +54,17 @@ async function saveDeadStatus({ festivalId }: { festivalId: string }) {
     );
 
     // alive=false 처리
-    const deadReqeusts = deadParticipants.map(
-      (deadParticipant: FirebaseFirestore.QueryDocumentSnapshot) =>
-        deadParticipant.ref.update({ ...deadParticipant.data(), alive: false }),
+    const deadReqeusts = deadParticipants.map((deadParticipant) =>
+      deadParticipant.ref.update({ alive: false }),
     );
     await Promise.all(deadReqeusts);
 
     // quiz에 alive_participants 업데이트
     const aliveParticipantCount =
       currnetRoundParticipantsSnap.docs.length - deadParticipants.length;
-    const festivalUpdatedData: QuizOperation = {
-      ...festivalData,
-      alive_participants: aliveParticipantCount,
-    };
-    await festivalSnap.ref.update(festivalUpdatedData);
+    await festivalSnap.ref.update({ alive_participants: aliveParticipantCount });
 
-    return festivalUpdatedData;
+    return { ...festivalData, alive_participants: aliveParticipantCount };
   } catch (err) {
     return null;
   }
@@ -90,19 +85,14 @@ async function reviveCurrentRoundParticipants({ festivalId }: { festivalId: stri
 
     const reviveReqeusts = currentRoundParticipantsSnap.docs
       .filter((participant) => participant.data().alive === false)
-      .map((deadParticipant: FirebaseFirestore.QueryDocumentSnapshot) =>
-        deadParticipant.ref.update({ ...deadParticipant.data(), alive: true }),
-      );
+      .map((deadParticipant) => deadParticipant.ref.update({ alive: true }));
     await Promise.all(reviveReqeusts);
 
     // quiz의 alive_participants 업데이트
-    const festivalUpdatedData: QuizOperation = {
-      ...festivalData,
-      alive_participants: currentRoundParticipantsSnap.docs.length,
-    };
-    await festivalSnap.ref.update(festivalUpdatedData);
+    const aliveParticipantCount = currentRoundParticipantsSnap.docs.length;
+    await festivalSnap.ref.update({ alive_participants: aliveParticipantCount });
 
-    return festivalUpdatedData;
+    return { ...festivalData, alive_participants: aliveParticipantCount };
   } catch (err) {
     return null;
   }

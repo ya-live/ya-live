@@ -5,8 +5,9 @@ import quizController from '../../../../controllers/quiz.controller';
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   const { method, query } = req;
 
-  if (method !== 'POST') {
-    res.status(404).end();
+  if (method === 'POST') {
+    await quizController.calculateRound({ query, res });
   }
-  await quizController.calculateRound({ query, res });
+
+  res.status(404).end();
 }
