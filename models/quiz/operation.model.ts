@@ -75,4 +75,42 @@ async function saveDeadStatus({ festivalId }: { festivalId: string }) {
   }
 }
 
-export default { updateOperationInfo, getAllQuizFromBank, saveDeadStatus };
+async function reviveCurrentRoundParticipants({ festivalId }: { festivalId: string }) {
+  try {
+    const festivalSnap = await FirebaseAdmin.getInstance()
+      .Firestore.collection('quiz')
+      .doc(festivalId)
+      .get();
+    const festivalData = festivalSnap.data() as QuizOperation;
+
+    const currentRoundParticipantsSnap = await festivalSnap.ref
+      .collection('participants')
+      .where('currentQuizID', '==', festivalData.quiz_id)
+      .get();
+
+    const reviveReqeusts = currentRoundParticipantsSnap.docs
+      .filter((participant) => participant.data().alive === false)
+      .map((deadParticipant: FirebaseFirestore.QueryDocumentSnapshot) =>
+        deadParticipant.ref.update({ ...deadParticipant.data(), alive: true }),
+      );
+    await Promise.all(reviveReqeusts);
+
+    // quiz의 alive_participants 업데이트
+    const festivalUpdatedData: QuizOperation = {
+      ...festivalData,
+      alive_participants: currentRoundParticipantsSnap.docs.length,
+    };
+    await festivalSnap.ref.update(festivalUpdatedData);
+
+    return festivalUpdatedData;
+  } catch (err) {
+    return null;
+  }
+}
+
+export default {
+  updateOperationInfo,
+  getAllQuizFromBank,
+  saveDeadStatus,
+  reviveCurrentRoundParticipants,
+};
