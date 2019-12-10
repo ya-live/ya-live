@@ -2,7 +2,7 @@ import React from 'react';
 
 import FirebaseAuthClient from '../../models/commons/firebase_auth_client.model';
 
-interface ILoginCompleteProps {
+interface LoginCompleteProps {
   displayName?: string | null;
   email?: string | null;
 }
@@ -11,7 +11,7 @@ async function onClickSignOut() {
   await FirebaseAuthClient.getInstance().Auth.signOut();
 }
 
-const LoginComplete: React.FC<ILoginCompleteProps> = ({ displayName, email }) => {
+const LoginComplete: React.FC<LoginCompleteProps> = ({ displayName, email }) => {
   const [name] = (displayName || '').split('_');
 
   return (

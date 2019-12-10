@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React from 'react';
 
 import FirebaseAuthClient from '../../models/commons/firebase_auth_client.model';
@@ -33,12 +34,22 @@ async function onClickSignIn() {
 
 const Login: React.FC = () => (
   <section className={styles.container}>
-    <button type="button" className={styles.loginButton} onClick={onClickSignIn}>
-      2019 <span className={styles.emphasis}>yaLive</span>
-      <br />
-      참가하러 가기
-    </button>
-    <p className={styles.caption}>야놀자 계정을 이용해주세요.</p>
+    <div className={styles.titleBox}>
+      <span className={styles.year}>2019 </span>
+      <span className={styles.yalive}>
+        yalive
+        <span role="img" aria-label="gift">
+          🎁
+        </span>
+      </span>
+    </div>
+    <div className={styles.loginDesc}>
+      주인공이 되고 싶다면 지금 바로
+      <Button className={styles.loginBtn} onClick={onClickSignIn}>
+        login
+      </Button>
+      하세요.
+    </div>
   </section>
 );
 

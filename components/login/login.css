@@ -2,26 +2,35 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.loginButton {
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: 나눔스퀘어;
   text-align: center;
-  display: block;
-  margin: 0 auto;
-  background: transparent;
-  cursor: pointer;
-  border: none;
 }
 
-.emphasis {
-  font-weight: normal;
+.titleBox {
   font-family: YanoljaSans;
 }
 
-.caption {
-  font-size: 1.5rem;
+.year {
+  font-size: 4rem;
+  color: var(--gray800);
+}
+
+.yalive {
+  font-weight: 700;
+  color: var(--yapink500);
+  font-size: 8rem;
   text-align: center;
+}
+
+.loginDesc {
+  color: var(--gray800);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.loginBtn {
+  font-size: 4rem;
+  color: var(--yablue500);
+  font-family: YanoljaSans;
+  font-weight: 900;
+  border: none;
 }
