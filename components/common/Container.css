@@ -1,0 +1,48 @@
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 7px;
+  }
+}
+
+.container {
+  font-size: 3rem;
+  height: 100%;
+}
+
+.heading {
+  font-family: YanoljaSans, 나눔스퀘어, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 1;
+}
+
+.logo {
+  flex: 1;
+  margin: 0 auto;
+}
+
+.name {
+  flex: 1;
+  text-align: right;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.content {
+  padding: 2rem;
+  padding-top: 6rem;
+  margin: 0 auto;
+  height: 100%;
+}

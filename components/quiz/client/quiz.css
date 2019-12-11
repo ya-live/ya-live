@@ -1,0 +1,44 @@
+.container {
+  height: 100%;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.quizWrap {
+  height: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.question {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.selectorBox {
+  padding: 3rem 0;
+}
+
+.countdownBox {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2rem;
+  font-weight: 800;
+  color: var(--yared500);
+  font-size: 5rem;
+}
+
+.countdownBox span {
+  margin-left: 1rem;
+  font-size: 4rem;
+}
+
+.img {
+  width: 100%;
+}

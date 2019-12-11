@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.titleBox {
+  font-family: YanoljaSans, 나눔스퀘어, sans-serif;
+  font-size: 4rem;
+  color: var(--gray800);
+}
+
+.yalive {
+  font-weight: 700;
+  color: var(--yapink500);
+  font-size: 6rem;
+  text-align: center;
+  margin-left: 1rem;
+}
+
+.loginDesc {
+  color: var(--gray800);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.loginBtn {
+  font-size: 4rem;
+  color: var(--yablue500);
+  font-family: YanoljaSans;
+  font-weight: 900;
+  border: none;
+  box-shadow: none;
+}

@@ -1,13 +1,20 @@
 import { Button, Col, Row } from 'antd';
+import { NextPage } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 
 import { useAuth, userContext, useSession } from '../components/auth/hooks/auth_hooks';
 import Layout from '../components/layout';
+import getStringValueFromQuery from '../controllers/etc/get_value_from_query';
 import FirebaseAuthClient from '../models/commons/firebase_auth_client.model';
 import { MemberInfo } from '../models/members/interfaces/memberInfo';
 import { memberAdd, memberFind } from '../models/members/members.client.service';
 
-async function onClickSignIn() {
+interface Props {
+  query: ParsedUrlQuery;
+}
+
+async function onClickSignIn(redirectUrl: string) {
   const result = await FirebaseAuthClient.getInstance().signInWithGoogle();
   if (result.user) {
     const idToken = await result.user.getIdToken();
@@ -29,7 +36,7 @@ async function onClickSignIn() {
         isServer: false,
       });
     }
-    window.location.href = '/';
+    window.location.href = redirectUrl;
   }
 }
 
@@ -48,7 +55,8 @@ function SignOut() {
   return renderElement;
 }
 
-const SignIn = () => {
+const SignIn: NextPage<Props> = ({ query }) => {
+  const redirectUrl = getStringValueFromQuery({ query, field: 'redirect' });
   const { initializing, haveUser, user } = useAuth();
   if (initializing) {
     return (
@@ -64,7 +72,13 @@ const SignIn = () => {
   const signInBtn = (
     <>
       Sign in with:{' '}
-      <Button size="large" icon="google" onClick={onClickSignIn}>
+      <Button
+        size="large"
+        icon="google"
+        onClick={() => {
+          onClickSignIn(redirectUrl || '/');
+        }}
+      >
         Google
       </Button>
     </>
@@ -84,5 +98,9 @@ const SignIn = () => {
     </Layout>
   );
 };
+
+SignIn.getInitialProps = async (ctx) => ({
+  query: ctx.query,
+});
 
 export default SignIn;

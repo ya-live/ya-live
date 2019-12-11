@@ -1,0 +1,14 @@
+{
+  "plugins": ["@babel/plugin-proposal-optional-chaining"],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "corejs": 3,
+          "useBuiltIns": "entry"
+        }
+      }
+    ]
+  ]
+}
