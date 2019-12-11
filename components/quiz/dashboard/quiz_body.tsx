@@ -8,9 +8,11 @@ import Selectors, { QuizAnswers } from './selectors';
 import FirebaseAuthClient from '@/models/commons/firebase_auth_client.model';
 import { QuizParticipant } from '@/models/quiz/interface/I_quiz_participant';
 import Countdown, { COUNTDOWN } from './countdown';
+import Statistics from './statistics';
 
 const isItCoverable = (status: EN_QUIZ_STATUS): boolean => {
   switch (status) {
+    case EN_QUIZ_STATUS.IDLE:
     case EN_QUIZ_STATUS.QUIZ:
     case EN_QUIZ_STATUS.SHOW_RESULT:
     case EN_QUIZ_STATUS.COUNTDOWN:
@@ -97,6 +99,7 @@ const QuizBody: React.FC = () => {
     <section className={styles.container}>
       <h1 className={styles.yalive}>yalive</h1>
       <Cover active={coverActive} status={quiz.status} />
+      <Statistics active={quiz.status === EN_QUIZ_STATUS.IDLE} />
       <Countdown
         active={quiz.status === EN_QUIZ_STATUS.COUNTDOWN && quizTime >= 0}
         quizTime={quizTime}
