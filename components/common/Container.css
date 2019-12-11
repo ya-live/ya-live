@@ -23,6 +23,8 @@
   padding: 1rem 2rem;
   position: fixed;
   width: 100%;
+  background: #fff;
+  z-index: 1;
 }
 
 .logo {
@@ -40,6 +42,7 @@
 
 .content {
   padding: 2rem;
+  padding-top: 6rem;
   margin: 0 auto;
   height: 100%;
 }

@@ -2,10 +2,17 @@
   height: 100%;
 }
 
+.hidden {
+  overflow: hidden;
+}
+
 .quizWrap {
+  height: 100%;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  max-width: 90rem;
+  margin: 0 auto;
 }
 
 .question {
@@ -14,7 +21,7 @@
 }
 
 .selectorBox {
-  margin-top: 3rem;
+  padding: 3rem 0;
 }
 
 .countdownBox {
@@ -30,4 +37,8 @@
 .countdownBox span {
   margin-left: 1rem;
   font-size: 4rem;
+}
+
+.img {
+  width: 100%;
 }

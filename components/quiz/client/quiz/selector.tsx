@@ -8,6 +8,7 @@ interface SelectorProps {
   selectedNo: number;
   result: number;
   isShowResult: boolean;
+  isDisabled: boolean;
   onClick: () => void;
 }
 
@@ -16,6 +17,7 @@ const Selector: React.FC<SelectorProps> = ({
   selectedNo,
   result,
   isShowResult,
+  isDisabled,
   onClick,
 }) => {
   const styleAfterResult = (() => {
@@ -23,8 +25,12 @@ const Selector: React.FC<SelectorProps> = ({
       return styles.selected;
     }
 
-    if (!isShowResult) {
+    if (!isShowResult && !isDisabled) {
       return;
+    }
+
+    if (!isShowResult && isDisabled) {
+      return styles.disabled;
     }
 
     if (selectedNo === result) {
@@ -42,7 +48,7 @@ const Selector: React.FC<SelectorProps> = ({
       type="button"
       key={selector.no}
       onClick={onClick}
-      disabled={isShowResult}
+      disabled={isDisabled}
     >
       {selector.title}
     </button>

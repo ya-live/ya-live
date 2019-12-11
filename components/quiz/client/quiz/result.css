@@ -1,0 +1,53 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--opacity400);
+  padding: 3rem;
+  z-index: 99;
+}
+
+.msgBox {
+  padding: 2rem;
+  background: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 2rem;
+  box-shadow: 0.5rem 0.2rem 1rem 0.2rem var(--gray600);
+  font-size: 1.5rem;
+  max-width: 40rem;
+}
+
+.imoji {
+  font-size: 4rem;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 800;
+}
+
+.successTitle {
+  color: var(--yagreen500);
+}
+
+.failTitle {
+  color: var(--yared500);
+}
+
+.result {
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  margin: 0 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+}
+
+.desc {
+  margin: 2rem 0;
+}

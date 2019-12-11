@@ -6,6 +6,7 @@
   height: 100%;
   background: var(--opacity600);
   text-align: center;
+  z-index: 99;
 }
 
 .text {

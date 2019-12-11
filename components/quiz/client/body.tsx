@@ -40,7 +40,7 @@ const ClientBody: React.FC = () => {
   const renderBody = () => {
     switch (quizInfo.status) {
       case EN_QUIZ_STATUS.IDLE:
-        return <Idle />;
+        return <Idle isAlive={userInfo.alive} />;
       case EN_QUIZ_STATUS.QUIZ:
       case EN_QUIZ_STATUS.COUNTDOWN:
       case EN_QUIZ_STATUS.CALCULATE:
