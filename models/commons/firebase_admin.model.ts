@@ -15,7 +15,7 @@ interface Config {
 export default class FirebaseAdmin {
   public static instance: FirebaseAdmin;
 
-  private init: boolean = false;
+  private init = false;
 
   public static getInstance() {
     if (!FirebaseAdmin.instance) {
@@ -25,7 +25,22 @@ export default class FirebaseAdmin {
     return FirebaseAdmin.instance;
   }
 
-  public bootstrap(): void {
+  /** firestore */
+  public get Firestore() {
+    if (this.init === false) {
+      this.bootstrap();
+    }
+    return admin.firestore();
+  }
+
+  public get Auth() {
+    if (this.init === false) {
+      this.bootstrap();
+    }
+    return admin.auth();
+  }
+
+  private bootstrap(): void {
     if (!!admin.apps.length === true) {
       this.init = true;
       return;
@@ -46,20 +61,5 @@ export default class FirebaseAdmin {
     });
     log('bootstrap end');
     this.init = true;
-  }
-
-  /** firestore */
-  public get Firestore() {
-    if (this.init === false) {
-      this.bootstrap();
-    }
-    return admin.firestore();
-  }
-
-  public get Auth() {
-    if (this.init === false) {
-      this.bootstrap();
-    }
-    return admin.auth();
   }
 }
