@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.heading {
+  color: var(--yapink500);
+  font-size: 6.3rem;
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+.counts {
+  position: relative;
+}
+
+.survivorCount {
+  font-size: 4rem;
+}
+
+.deathCount {
+  color: var(--yared500);
+  font-size: 2.4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.revivalCount {
+  composes: deathCount;
+  color: var(--yagreen500);
+}
