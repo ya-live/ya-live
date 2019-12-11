@@ -5,6 +5,9 @@ import FirebaseAuthClient from '../../models/commons/firebase_auth_client.model'
 import { MemberInfo } from '../../models/members/interfaces/memberInfo';
 import { memberAdd, memberFind } from '../../models/members/members.client.service';
 import styles from './login.css';
+import { useStoreDoc } from '../auth/hooks/firestore_hooks';
+import { QuizOperation } from '../../models/quiz/interface/I_quiz_operation';
+import { EN_QUIZ_STATUS } from '../../models/quiz/interface/EN_QUIZ_STATUS';
 
 async function onClickSignIn() {
   const result = await FirebaseAuthClient.getInstance().signInWithGoogle();
@@ -32,25 +35,48 @@ async function onClickSignIn() {
   }
 }
 
-const Login: React.FC = () => (
-  <section className={styles.container}>
-    <div className={styles.titleBox}>
-      <span className={styles.year}>2019 </span>
-      <span className={styles.yalive}>
-        yalive
-        <span role="img" aria-label="gift">
-          🎁
-        </span>
-      </span>
-    </div>
-    <div className={styles.loginDesc}>
-      주인공이 되고 싶다면 지금 바로
-      <Button className={styles.loginBtn} onClick={onClickSignIn}>
-        login
-      </Button>
-      하세요.
-    </div>
-  </section>
-);
+const Login: React.FC<{ quizID: string }> = ({ quizID }) => {
+  const { docValue } = useStoreDoc({ collectionPath: 'quiz', docPath: quizID || 'none' });
+  const quizInfo = docValue?.data() as QuizOperation;
+
+  const renderBody = () => {
+    if (!quizInfo) {
+      return null;
+    }
+
+    if (quizInfo.status === EN_QUIZ_STATUS.PREPARE || quizInfo.status === EN_QUIZ_STATUS.INIT) {
+      return (
+        <>
+          2019
+          <span className={styles.yalive}>
+            yalive
+            <span role="img" aria-label="gift">
+              🎁
+            </span>
+          </span>
+          <div className={styles.loginDesc}>
+            주인공이 되고 싶다면 지금 바로
+            <Button className={styles.loginBtn} onClick={onClickSignIn}>
+              login
+            </Button>
+          </div>
+        </>
+      );
+    }
+
+    return (
+      <>
+        퀴즈가 이미 시작되어, <br />
+        참여하실 수 없습니다.
+      </>
+    );
+  };
+
+  return (
+    <section className={styles.container}>
+      <div className={styles.titleBox}>{renderBody()}</div>
+    </section>
+  );
+};
 
 export default Login;

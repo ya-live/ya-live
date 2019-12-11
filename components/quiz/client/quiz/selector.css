@@ -1,0 +1,88 @@
+.container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.question {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.selectorBox {
+  margin-top: 3rem;
+}
+
+.selector {
+  border-radius: 2rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  word-break: keep-all;
+  border: 0.3rem dashed var(--yablue100);
+  width: 100%;
+  display: block;
+  background: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.selector:hover {
+  color: var(--yablue600);
+}
+
+.selected,
+.selector:active {
+  color: var(--yablue600);
+  border: 0.3rem solid var(--yablue200);
+  font-weight: 800;
+}
+
+.selector + .selector {
+  margin-top: 1rem;
+}
+
+.selector.disabled {
+  background: var(--gray100);
+  border: 0.3rem solid var(--gray200);
+  color: var(--gray400);
+  cursor: not-allowed;
+}
+
+.selector.successResult {
+  border: 0.3rem solid var(--yagreen200);
+  font-weight: 800;
+  animation: successResult 1s infinite;
+  color: var(--yagreen400);
+}
+
+.selector.failResult {
+  border: 0.3rem solid var(--yared200);
+  font-weight: 800;
+  animation: failResult 1s infinite;
+  color: var(--yared400);
+}
+
+@keyframes successResult {
+  0% {
+    background: #fff;
+  }
+  50% {
+    background: var(--yagreen100);
+  }
+  100% {
+    background: #fff;
+  }
+}
+
+@keyframes failResult {
+  0% {
+    background: #fff;
+  }
+  50% {
+    background: var(--yared100);
+  }
+  100% {
+    background: #fff;
+  }
+}

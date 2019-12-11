@@ -1,0 +1,33 @@
+.container {
+  height: 100%;
+}
+
+.quizWrap {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.question {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.selectorBox {
+  margin-top: 3rem;
+}
+
+.countdownBox {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2rem;
+  font-weight: 800;
+  color: var(--yared500);
+  font-size: 5rem;
+}
+
+.countdownBox span {
+  margin-left: 1rem;
+  font-size: 4rem;
+}

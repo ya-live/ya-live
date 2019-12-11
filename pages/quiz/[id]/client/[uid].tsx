@@ -1,13 +1,12 @@
 import { NextPage } from 'next';
-import React, { useRef } from 'react';
-
-import { useAuth } from '../../../../components/auth/hooks/auth_hooks';
-import getStringValueFromQuery from '../../../../controllers/etc/get_value_from_query';
+import React from 'react';
+import { useAuth } from '@/components/auth/hooks/auth_hooks';
+import Container from '@/components/common/Container';
 import Loading from '@/components/common/Loading';
 import ClientBody from '@/components/quiz/client/body';
-import Container from '@/components/common/Container';
-import QuizClientStore from '@/store/client/QuizClientStore';
-import { QuizClientStoreCtx } from '../../../../store/client/QuizClientStore';
+
+import { QuizClientContext } from '../../../../context/quiz/client/QuizClientContext';
+import getStringValueFromQuery from '../../../../controllers/etc/get_value_from_query';
 
 interface QuizClientProps {
   quizID?: string;
@@ -16,17 +15,16 @@ interface QuizClientProps {
 
 const QuizClient: NextPage<QuizClientProps> = ({ quizID = '', userID = '' }) => {
   const { initializing, user } = useAuth();
-  const store = useRef(new QuizClientStore(quizID, userID)).current;
 
   const [name] = (user?.displayName || '').split('_');
 
   return (
-    <QuizClientStoreCtx.Provider value={store}>
+    <QuizClientContext.Provider value={{ quizID, userID }}>
       <Container name={name}>
         <ClientBody />
         {initializing && <Loading />}
       </Container>
-    </QuizClientStoreCtx.Provider>
+    </QuizClientContext.Provider>
   );
 };
 

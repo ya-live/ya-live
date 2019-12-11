@@ -5,7 +5,7 @@ import styles from './Container.css';
 const Container: React.FC<{ name?: string }> = ({ name, children }) => (
   <div className={styles.container}>
     <div className={styles.heading}>
-      <p className={styles.logo}>yaLive</p>
+      <p className={styles.logo}>yalive</p>
       {name && <p className={styles.name}>{name}님</p>}
     </div>
     <div className={styles.content}>{children}</div>

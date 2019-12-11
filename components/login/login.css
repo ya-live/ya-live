@@ -6,10 +6,7 @@
 }
 
 .titleBox {
-  font-family: YanoljaSans;
-}
-
-.year {
+  font-family: YanoljaSans, 나눔스퀘어, sans-serif;
   font-size: 4rem;
   color: var(--gray800);
 }
@@ -19,6 +16,7 @@
   color: var(--yapink500);
   font-size: 6rem;
   text-align: center;
+  margin-left: 1rem;
 }
 
 .loginDesc {

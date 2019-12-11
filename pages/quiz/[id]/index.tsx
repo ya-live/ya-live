@@ -25,7 +25,7 @@ const ClientLoginPage: NextPage<ClientLoginProps> = ({ quizID }) => {
 
   return (
     <Container>
-      <Login />
+      <Login quizID={quizID || ''} />
       {initializing && <Loading />}
     </Container>
   );
