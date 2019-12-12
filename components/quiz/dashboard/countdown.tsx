@@ -1,15 +1,17 @@
 import React from 'react';
 import { animated, useSpring } from 'react-spring';
+import clsx from 'clsx';
 import styles from './countdown.css';
 
 interface CountdownProps {
   active?: boolean;
   quizTime: number;
+  className?: string;
 }
 
 export const COUNTDOWN = 10;
 
-const Countdown: React.FC<CountdownProps> = ({ active, quizTime }) => {
+const Countdown: React.FC<CountdownProps> = ({ active, quizTime, className }) => {
   const gaugeStyle = useSpring({
     config: {
       tension: 300,
@@ -21,7 +23,7 @@ const Countdown: React.FC<CountdownProps> = ({ active, quizTime }) => {
   });
 
   return (
-    <animated.aside className={styles.countdown} style={containerStyle}>
+    <animated.aside className={clsx(styles.countdown, className)} style={containerStyle}>
       <animated.div className={styles.meter} style={gaugeStyle} />
       <span>COUNTDOWN! {Math.max(0, quizTime)}</span>
     </animated.aside>

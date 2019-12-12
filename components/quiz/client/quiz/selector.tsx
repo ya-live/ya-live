@@ -20,31 +20,32 @@ const Selector: React.FC<SelectorProps> = ({
   isDisabled,
   onClick,
 }) => {
-  const styleAfterResult = (() => {
+  const styleBeforeResult = (() => {
     if (selectedNo === selector.no) {
       return styles.selected;
     }
 
-    if (!isShowResult && !isDisabled) {
-      return;
-    }
-
-    if (!isShowResult && isDisabled) {
+    if (isDisabled) {
       return styles.disabled;
     }
-
+  })();
+  const styleAfterResult = (() => {
     if (selectedNo === result) {
       // 정답이 공개되고 답 맞을 때
       return result === selector.no ? styles.successResult : styles.disabled;
     }
 
     // 정답이 공개되고 답 안맞을때
+    if (selectedNo === selector.no) {
+      return styles.selected;
+    }
+
     return result === selector.no ? styles.failResult : styles.disabled;
   })();
 
   return (
     <button
-      className={clsx(styles.selector, styleAfterResult)}
+      className={clsx(styles.selector, isShowResult ? styleAfterResult : styleBeforeResult)}
       type="button"
       key={selector.no}
       onClick={onClick}
