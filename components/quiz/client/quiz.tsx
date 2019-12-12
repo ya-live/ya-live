@@ -51,7 +51,7 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
     updateParticipantsForClient({
       uid: ctx.userID,
       quiz_id: ctx.quizID,
-      info: { select: no },
+      info: { select: no, currentQuizID: quiz.quiz_id },
       isServer: false,
     });
   }
