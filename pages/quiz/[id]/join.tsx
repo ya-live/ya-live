@@ -1,8 +1,7 @@
-import { ParsedUrlQuery } from 'querystring';
-
 import { Button } from 'antd';
 import { DateTime } from 'luxon';
 import { NextPage } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 
 import { useAuth } from '../../../components/auth/hooks/auth_hooks';
@@ -12,6 +11,7 @@ import SlLayout from '../../../components/layout';
 import getStringValueFromQuery from '../../../controllers/etc/get_value_from_query';
 import { EN_QUIZ_STATUS } from '../../../models/quiz/interface/EN_QUIZ_STATUS';
 import { QuizOperation } from '../../../models/quiz/interface/I_quiz_operation';
+import * as participantClient from '../../../models/quiz/participants.client.service';
 
 interface Props {
   query: ParsedUrlQuery;
@@ -27,7 +27,7 @@ const initData: QuizOperation = {
 
 /** 참가확인용 */
 const QuizJoin: NextPage<Props> = ({ id }) => {
-  const { docValue: info, docRef } = useStoreDoc({ collectionPath: 'quiz', docPath: id });
+  const { docValue: info } = useStoreDoc({ collectionPath: 'quiz', docPath: id });
   const { initializing, haveUser, user } = useAuth();
   // const { docValue: participant } = useStoreDoc({
   //   collectionPath: 'quiz/participants',
@@ -70,16 +70,23 @@ const QuizJoin: NextPage<Props> = ({ id }) => {
         참가 가능
         <Button
           onClick={async () => {
-            await docRef
-              .collection('participants')
-              .doc(user.uid)
-              .set({
+            const resp = await participantClient.joinParticipantsForClient({
+              uid: user.uid,
+              quiz_id: id,
+              isServer: false,
+              info: {
+                id,
                 join: DateTime.local().toISO(),
                 alive: true,
-                id: user.uid,
-                displayName: user.displayName,
-              });
-            window.location.href = `/quiz/${id}/client/${user.uid}`;
+                displayName: user.displayName === null ? 'empty' : user.displayName,
+              },
+            });
+            if (resp.status === 200 && resp.payload) {
+              window.location.href = `/quiz/${id}/client/${user.uid}`;
+            } else {
+              // eslint-disable-next-line no-alert
+              alert('준비중 상태가 아니라서 참가할 수 없습니다');
+            }
           }}
         >
           참가 신청

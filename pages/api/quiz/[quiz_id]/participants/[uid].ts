@@ -10,7 +10,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
   // eslint-disable-next-line no-console
   const { method, query, body } = req;
   log(method);
-  if (!(method === 'GET' || method === 'PUT')) {
+  if (!(method === 'GET' || method === 'PUT' || method === 'POST')) {
     res.status(404).end();
   }
   if (method === 'GET') {
@@ -18,5 +18,8 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
   }
   if (method === 'PUT') {
     await quizController.updateParticipant({ query, res, body });
+  }
+  if (method === 'POST') {
+    await quizController.joinParticipant({ query, res, body });
   }
 }

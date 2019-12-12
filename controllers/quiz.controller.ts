@@ -32,6 +32,57 @@ async function findParticipant({
   return res.json(resp);
 }
 
+async function initTotalParticipants({
+  query,
+  res,
+}: {
+  query: NextApiRequest['query'];
+  res: NextApiResponse;
+}) {
+  const quizId = getStringValueFromQuery({ query, field: 'quiz_id' });
+  log({ quizId });
+  if (!quizId) {
+    return res.status(400).end();
+  }
+  // db 조회
+  const resp = await quizOpsModel.initTotalParticipants({
+    quiz_id: quizId,
+  });
+  log(resp);
+  if (!!resp === false) {
+    return res.status(404).end();
+  }
+  return res.json(resp);
+}
+
+async function joinParticipant({
+  query,
+  body,
+  res,
+}: {
+  query: NextApiRequest['query'];
+  body: QuizParticipant;
+  res: NextApiResponse;
+}) {
+  const userId = getStringValueFromQuery({ query, field: 'uid' });
+  const quizId = getStringValueFromQuery({ query, field: 'quiz_id' });
+  log({ userId, quizId, body });
+  if (!userId || !quizId || !body) {
+    return res.status(400).end();
+  }
+  // db 조회
+  const resp = await participantsModel.joinParticipant({
+    user_id: userId,
+    quiz_id: quizId,
+    info: body,
+  });
+  log(resp);
+  if (!!resp === false) {
+    return res.status(404).end();
+  }
+  return res.json(resp);
+}
+
 async function updateParticipant({
   query,
   body,
@@ -171,7 +222,9 @@ async function reviveCurrentRoundParticipants({
 }
 
 export default {
+  initTotalParticipants,
   findParticipant,
+  joinParticipant,
   updateParticipant,
   updateOperationInfo,
   findAllQuizFromBank,

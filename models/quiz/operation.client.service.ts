@@ -26,6 +26,26 @@ export async function updateQuizOpsForClient(args: {
   }
 }
 
+/** 참석자 전체 인원을 체크한다 */
+export async function initTotalParticipants(args: { quiz_id: string; isServer: boolean }) {
+  const { isServer } = args;
+  const hostAndPort: string = getBaseUrl(isServer);
+  const url = `${hostAndPort}/api/quiz/${args.quiz_id}/init`;
+  try {
+    const resp = await requester<boolean>({
+      option: {
+        url,
+        method: 'post',
+      },
+    });
+    return resp;
+  } catch (err) {
+    return {
+      status: 500,
+    };
+  }
+}
+
 /** 각 퀴즈 이벤트의 퀴즈 은행에서 문제를 로딩한다 */
 export async function findAllQuizFromBankForClient(args: { quiz_id: string; isServer: boolean }) {
   const { isServer } = args;
