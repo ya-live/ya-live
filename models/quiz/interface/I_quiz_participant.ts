@@ -6,4 +6,8 @@ export interface QuizParticipant {
   currentQuizID?: string;
   /** 선택한 번호 */
   select?: number;
+  /** 사용자 고유 id */
+  id: string;
+  /** 사용자 출력 명 */
+  displayName: string;
 }

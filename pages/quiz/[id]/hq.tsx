@@ -221,7 +221,7 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
 
   // 부활 버튼
   const resurrectBtn = (() => {
-    if (operationInfo.status !== EN_QUIZ_STATUS.SHOW_RESULT) {
+    if (operationInfo.status !== EN_QUIZ_STATUS.IDLE) {
       return null;
     }
     return (
@@ -259,6 +259,22 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
             {calCorrectAnswer}
             <Divider />
             {resurrectBtn}
+            <Button
+              onClick={async () => {
+                const resp = await opsService.initTotalParticipants({
+                  quiz_id: id,
+                  isServer: false,
+                });
+                if (resp.status !== 200 || resp.payload === undefined || resp.payload === null) {
+                  message.warning('전체 참가자 숫자 초기화:실패');
+                }
+                if (resp.status === 200 && resp.payload) {
+                  message.info('전체 참가자 숫자 초기화:성공');
+                }
+              }}
+            >
+              전체 참가자 숫자 초기화
+            </Button>
             <Divider />
             <div>{`현재 퀴즈 id: ${operationInfo.quiz_id}`}</div>
             <div>{`퀴즈 설명: ${operationInfo.quiz_desc}`}</div>

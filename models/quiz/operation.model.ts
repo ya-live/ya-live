@@ -20,6 +20,39 @@ async function updateOperationInfo(args: { quiz_id: string; info: Partial<QuizOp
   }
 }
 
+async function initTotalParticipants(args: { quiz_id: string }) {
+  const ref = FirebaseAdmin.getInstance()
+    .Firestore.collection('quiz')
+    .doc(args.quiz_id);
+  try {
+    const infoSnap = await ref.get();
+    // 정보가 존재하지 않으면 null 반환
+    if (infoSnap.exists === false) {
+      return null;
+    }
+
+    const info = infoSnap.data() as QuizOperation;
+
+    const participants = await FirebaseAdmin.getInstance()
+      .Firestore.collection('quiz')
+      .doc(args.quiz_id)
+      .collection('participants')
+      .get();
+    await ref.update({
+      total_participants: participants.size,
+      alive_participants: participants.size,
+    });
+    const updateData = {
+      ...info,
+      total_participants: participants.size,
+      alive_participants: participants.size,
+    };
+    return updateData;
+  } catch (err) {
+    return null;
+  }
+}
+
 async function getAllQuizFromBank(args: { quiz_id: string }) {
   const ref = FirebaseAdmin.getInstance()
     .Firestore.collection('quiz')
@@ -99,6 +132,7 @@ async function reviveCurrentRoundParticipants({ festivalId }: { festivalId: stri
 }
 
 export default {
+  initTotalParticipants,
   updateOperationInfo,
   getAllQuizFromBank,
   saveDeadStatus,

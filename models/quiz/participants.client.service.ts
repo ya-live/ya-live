@@ -49,3 +49,28 @@ export async function updateParticipantsForClient(args: {
     };
   }
 }
+
+export async function joinParticipantsForClient(args: {
+  uid: string;
+  quiz_id: string;
+  info: QuizParticipant;
+  isServer: boolean;
+}) {
+  const { isServer } = args;
+  const hostAndPort: string = getBaseUrl(isServer);
+  const url = `${hostAndPort}/api/quiz/${args.quiz_id}/participants/${args.uid}`;
+  try {
+    const resp = await requester<QuizParticipant | null>({
+      option: {
+        url,
+        method: 'post',
+        data: args.info,
+      },
+    });
+    return resp;
+  } catch (err) {
+    return {
+      status: 500,
+    };
+  }
+}
