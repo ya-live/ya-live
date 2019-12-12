@@ -10,6 +10,7 @@ import { QuizParticipant } from '../../../models/quiz/interface/I_quiz_participa
 import { EN_QUIZ_STATUS } from '../../../models/quiz/interface/EN_QUIZ_STATUS';
 import Calculate from './quiz/calculate';
 import ShowResult from './quiz/result';
+import Countdown from '../dashboard/countdown';
 
 interface QuizProps {
   quiz: QuizOperation;
@@ -20,7 +21,7 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
   const ctx = useContext(QuizClientContext);
   const [selectedNo, setSelectedNo] = useState(user.select || -1);
   const [isFinishCount, setIsFinishCount] = useState(false);
-  const [displayCount, setDisplayCount] = useState('');
+  const [displayCount, setDisplayCount] = useState(10);
 
   useEffect(() => {
     if (quiz.status === EN_QUIZ_STATUS.COUNTDOWN) {
@@ -31,15 +32,13 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
   function startCountdown() {
     let countdown = 10;
     const count = setInterval(() => {
+      setDisplayCount(countdown);
+
       if (countdown === 0) {
-        setDisplayCount('Time over');
         setIsFinishCount(true);
         clearInterval(count);
-
-        return;
       }
 
-      setDisplayCount(String(countdown));
       countdown -= 1;
     }, 1000);
   }
@@ -66,12 +65,11 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
     switch (quiz.status) {
       case EN_QUIZ_STATUS.COUNTDOWN:
         return (
-          <div className={styles.countdownBox}>
-            {displayCount}
-            <span role="img" aria-label="clock">
-              ⏰
-            </span>
-          </div>
+          <Countdown
+            className={styles.countdown}
+            active={quiz.status === EN_QUIZ_STATUS.COUNTDOWN}
+            quizTime={displayCount}
+          />
         );
       case EN_QUIZ_STATUS.CALCULATE:
         return <Calculate />;
