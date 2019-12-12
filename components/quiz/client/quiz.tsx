@@ -32,13 +32,12 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
   function startCountdown() {
     let countdown = 10;
     const count = setInterval(() => {
-      setDisplayCount(countdown);
-
-      if (countdown === 0) {
+      if (countdown < 0) {
         setIsFinishCount(true);
         clearInterval(count);
       }
 
+      setDisplayCount(countdown);
       countdown -= 1;
     }, 1000);
   }

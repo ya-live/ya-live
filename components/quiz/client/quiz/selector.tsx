@@ -36,6 +36,10 @@ const Selector: React.FC<SelectorProps> = ({
     }
 
     // 정답이 공개되고 답 안맞을때
+    if (selectedNo === selector.no) {
+      return styles.selected;
+    }
+
     return result === selector.no ? styles.failResult : styles.disabled;
   })();
 
