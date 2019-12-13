@@ -288,6 +288,13 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
             <Divider />
             <div>{`현재 퀴즈 id: ${operationInfo.quiz_id}`}</div>
             <div>{`퀴즈 설명: ${operationInfo.quiz_desc}`}</div>
+            <div>{`퀴즈 정답: ${operationInfo.quiz_correct_answer} _ (${
+              operationInfo.quiz_correct_answer &&
+              operationInfo.quiz_correct_answer !== -1 &&
+              operationInfo.quiz_selector
+                ? operationInfo.quiz_selector[operationInfo.quiz_correct_answer - 1].title
+                : null
+            })`}</div>
             <Divider />
             <Button
               onClick={async () => {
