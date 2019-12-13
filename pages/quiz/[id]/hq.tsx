@@ -289,7 +289,10 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
                   message.warning('퀴즈 불러오기 실패');
                 }
                 if (resp.status === 200 && resp.payload && resp.payload !== null) {
-                  updateQuizData(resp.payload);
+                  const sortedData = [...resp.payload].sort((a, b) =>
+                    a.quiz_id > b.quiz_id ? 1 : -1,
+                  );
+                  updateQuizData(sortedData);
                 }
               }}
             >
