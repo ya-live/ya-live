@@ -31,8 +31,7 @@
   color: var(--yablue600);
 }
 
-.selected,
-.selector:active {
+.selected {
   color: var(--yablue600);
   border: 0.3rem solid var(--yablue200);
   font-weight: 800;

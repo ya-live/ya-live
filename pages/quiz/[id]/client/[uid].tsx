@@ -2,7 +2,6 @@ import { NextPage } from 'next';
 import React from 'react';
 import { useAuth } from '@/components/auth/hooks/auth_hooks';
 import Container from '@/components/common/Container';
-import Loading from '@/components/common/Loading';
 import ClientBody from '@/components/quiz/client/body';
 
 import { QuizClientContext } from '../../../../context/quiz/client/QuizClientContext';
@@ -21,7 +20,7 @@ interface QuizClientProps {
 }
 
 const QuizClient: NextPage<QuizClientProps> = ({ quizID = '', userID = '' }) => {
-  const { initializing, user } = useAuth();
+  const { user } = useAuth();
 
   const { docValue: quizFromStore } = useStoreDoc({
     collectionPath: 'quiz',
@@ -53,7 +52,6 @@ const QuizClient: NextPage<QuizClientProps> = ({ quizID = '', userID = '' }) => 
         isFixed={quiz?.status !== EN_QUIZ_STATUS.QUIZ && quiz?.status !== EN_QUIZ_STATUS.COUNTDOWN}
       >
         <ClientBody />
-        {initializing && <Loading />}
       </Container>
     </QuizClientContext.Provider>
   );

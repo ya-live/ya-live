@@ -24,6 +24,10 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
   const [displayCount, setDisplayCount] = useState(10);
 
   useEffect(() => {
+    setSelectedNo(user.select || -1);
+  }, [user.select]);
+
+  useEffect(() => {
     if (quiz.status === EN_QUIZ_STATUS.COUNTDOWN) {
       startCountdown();
     }
