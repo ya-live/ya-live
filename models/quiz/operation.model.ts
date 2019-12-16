@@ -131,10 +131,40 @@ async function reviveCurrentRoundParticipants({ festivalId }: { festivalId: stri
   }
 }
 
+async function initAliveParticipants({
+  festivalId,
+  currentQuizID,
+}: {
+  festivalId: string;
+  currentQuizID: string;
+}) {
+  try {
+    const festivalSnap = await FirebaseAdmin.getInstance()
+      .Firestore.collection('quiz')
+      .doc(festivalId)
+      .get();
+
+    const aliveUsers = await festivalSnap.ref
+      .collection('participants')
+      .where('alive', '==', true)
+      .get();
+
+    const reviveReqeusts = aliveUsers.docs.map((deadParticipant) =>
+      deadParticipant.ref.update({ currentQuizID, select: -1 }),
+    );
+    await Promise.all(reviveReqeusts);
+
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
 export default {
   initTotalParticipants,
   updateOperationInfo,
   getAllQuizFromBank,
   saveDeadStatus,
   reviveCurrentRoundParticipants,
+  initAliveParticipants,
 };

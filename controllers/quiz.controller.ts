@@ -221,6 +221,28 @@ async function reviveCurrentRoundParticipants({
   return res.json(resp);
 }
 
+/** 생존자의 선택 번호와 퀴즈번호를 설정한다. */
+async function initAliveUser({
+  query,
+  res,
+}: {
+  query: NextApiRequest['query'];
+  res: NextApiResponse;
+}) {
+  const festivalId = getStringValueFromQuery({ query, field: 'quiz_id' });
+  const currentQuizID = getStringValueFromQuery({ query, field: 'current_quiz_id' });
+  if (festivalId === undefined || currentQuizID === undefined) {
+    return res.status(400).end();
+  }
+
+  const resp = await quizOpsModel.initAliveParticipants({ festivalId, currentQuizID });
+  log('[initAliveUser]: ', resp);
+  if (resp === null) {
+    return res.status(500).end();
+  }
+  return res.end();
+}
+
 export default {
   initTotalParticipants,
   findParticipant,
@@ -230,4 +252,5 @@ export default {
   findAllQuizFromBank,
   calculateRound,
   reviveCurrentRoundParticipants,
+  initAliveUser,
 };

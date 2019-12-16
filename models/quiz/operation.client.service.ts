@@ -110,3 +110,28 @@ export async function reviveCurrentRoundParticipants(args: {
     };
   }
 }
+
+/** 탈락자가 많이 발생했을 때, 부활 */
+export async function initAliveParticipants(args: {
+  festivalId: string;
+  quizID: string;
+  isServer: boolean;
+}) {
+  const { isServer } = args;
+  const hostAndPort: string = getBaseUrl(isServer);
+  const url = `${hostAndPort}/api/quiz/${args.festivalId}/participants?current_quiz_id=${args.quizID}`;
+
+  try {
+    const resp = await requester<boolean | null>({
+      option: {
+        url,
+        method: 'put',
+      },
+    });
+    return resp;
+  } catch (err) {
+    return {
+      status: 500,
+    };
+  }
+}
