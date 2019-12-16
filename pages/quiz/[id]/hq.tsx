@@ -78,6 +78,7 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
               status: mv.status,
             },
           });
+
           // 카운트 다운 이벤트는 발생 즉시 10초 후 calculate로 상태를 전환한다.
           if (mv.status === EN_QUIZ_STATUS.COUNTDOWN) {
             setTimeout(async () => {
@@ -123,12 +124,14 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
             key={item.quiz_id}
             actions={[
               <Button
+                disabled={item.use}
                 onClick={async () => {
                   // IDLE이 아니면 퀴즈 전송이 안된다.
                   if (operationInfo.status !== EN_QUIZ_STATUS.IDLE) {
                     message.warn('IDLE 상태가 아니면 퀴즈 셋팅이 안됩니다.');
                     return;
                   }
+
                   // 퀴즈 정보 반영 요청
                   const resp = await opsService.updateQuizOpsForClient({
                     quiz_id: id,
@@ -142,7 +145,13 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
                       quiz_correct_answer: -1,
                     },
                   });
+
+                  if (resp.status !== 200) {
+                    message.warn('퀴즈 정보 반영이 실패했습니다.');
+                    return;
+                  }
                   message.info(`퀴즈 정보 반영 상태 : ${resp.status}`);
+
                   const initAliveUsers = await opsService.initAliveParticipants({
                     festivalId: id,
                     quizID: item.quiz_id,
@@ -220,6 +229,30 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
               return;
             }
             message.success('정산 완료');
+
+            // 정산 이벤트 때, 해당 퀴즈는 사용처리한다.
+            const usedQuiz = await opsService.updateQuiz({
+              festivalId: id,
+              quizId: operationInfo.quiz_id!,
+              quiz: { use: true },
+              isServer: false,
+            });
+
+            if (usedQuiz.status === 200) {
+              message.success(`${operationInfo.quiz_id} 퀴즈 사용 상태 변경 성공`);
+              const updatedQuizList = quizData !== undefined ? quizData : [];
+              const quizIndex = updatedQuizList.findIndex(
+                (quiz) => quiz.quiz_id === usedQuiz.payload?.quiz_id,
+              );
+
+              if (quizIndex !== undefined) {
+                updatedQuizList[quizIndex] = usedQuiz.payload!;
+              }
+
+              updateQuizData(updatedQuizList);
+            } else {
+              message.warn(`${operationInfo.quiz_id} 퀴즈 사용 상태 변경 실패`);
+            }
           }}
         >
           오답자 계산

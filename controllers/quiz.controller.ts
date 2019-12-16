@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import participantsModel from '../models/quiz/participants.model';
 import quizOpsModel from '../models/quiz/operation.model';
 import { QuizParticipant } from '../models/quiz/interface/I_quiz_participant';
-import { QuizOperation } from '../models/quiz/interface/I_quiz_operation';
+import { QuizOperation, QuizItem } from '../models/quiz/interface/I_quiz_operation';
 import getStringValueFromQuery from './etc/get_value_from_query';
 import validateParamWithData from '../models/commons/req_validator';
 import JSCQuizOperation from '../models/quiz/jsc/quiz.operation.jsc';
@@ -179,6 +179,34 @@ async function findAllQuizFromBank({
   return res.json(resp);
 }
 
+async function updateQuiz({
+  query,
+  body,
+  res,
+}: {
+  query: NextApiRequest['query'];
+  body: Partial<QuizItem>;
+  res: NextApiResponse;
+}) {
+  const festivalId = getStringValueFromQuery({ query, field: 'quiz_id' });
+  const quizId = getStringValueFromQuery({ query, field: 'id' });
+
+  if (!festivalId || !quizId) {
+    return res.status(400).end();
+  }
+
+  const resp = await quizOpsModel.updateQuiz({
+    festivalId,
+    quizId,
+    quiz: body,
+  });
+  log('[updateQuiz]: ', resp);
+  if (resp === null) {
+    return res.status(500).end();
+  }
+  return res.json(resp);
+}
+
 /** 정산하기 */
 async function calculateRound({
   query,
@@ -266,6 +294,7 @@ export default {
   updateParticipant,
   updateOperationInfo,
   findAllQuizFromBank,
+  updateQuiz,
   calculateRound,
   reviveCurrentRoundParticipants,
   initAliveUser,

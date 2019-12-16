@@ -53,4 +53,6 @@ export interface QuizItem {
   quiz_selector: SelectorItem[];
   /** 퀴즈의 정답(반드시 SHOW_RESULT 상태에서 넣어줘야한다.) */
   quiz_correct_answer: number;
+  /** 사용 유무 */
+  use: boolean;
 }
