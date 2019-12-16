@@ -37,6 +37,10 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
         clearInterval(count);
       }
 
+      if (countdown === 3) {
+        window.navigator.vibrate([800, 200, 800, 200, 800]);
+      }
+
       setDisplayCount(countdown);
       countdown -= 1;
     }, 1000);

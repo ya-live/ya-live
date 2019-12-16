@@ -13,6 +13,7 @@ import {
 } from '../../../../components/auth/hooks/firestore_hooks';
 import { QuizOperation } from '../../../../models/quiz/interface/I_quiz_operation';
 import { QuizParticipant } from '../../../../models/quiz/interface/I_quiz_participant';
+import { EN_QUIZ_STATUS } from '../../../../models/quiz/interface/EN_QUIZ_STATUS';
 
 interface QuizClientProps {
   quizID?: string;
@@ -47,7 +48,10 @@ const QuizClient: NextPage<QuizClientProps> = ({ quizID = '', userID = '' }) => 
 
   return (
     <QuizClientContext.Provider value={{ quizID, userID, quiz, user: userInfo }}>
-      <Container name={name}>
+      <Container
+        name={name}
+        isFixed={quiz?.status !== EN_QUIZ_STATUS.QUIZ && quiz?.status !== EN_QUIZ_STATUS.COUNTDOWN}
+      >
         <ClientBody />
         {initializing && <Loading />}
       </Container>
