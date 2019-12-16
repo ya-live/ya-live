@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 
 import { useAuth } from '../../../components/auth/hooks/auth_hooks';
 import Container from '../../../components/common/Container';
-import Loading from '../../../components/common/Loading';
 import Login from '../../../components/login/login';
 import getStringValueFromQuery from '../../../controllers/etc/get_value_from_query';
 
@@ -15,7 +14,7 @@ interface ClientLoginProps {
  * 참가자 로그인 / 대기 화면
  */
 const ClientLoginPage: NextPage<ClientLoginProps> = ({ quizID }) => {
-  const { initializing, haveUser, user } = useAuth();
+  const { haveUser, user } = useAuth();
 
   useEffect(() => {
     if (haveUser && user?.uid) {
@@ -26,7 +25,6 @@ const ClientLoginPage: NextPage<ClientLoginProps> = ({ quizID }) => {
   return (
     <Container>
       <Login quizID={quizID || ''} />
-      {initializing && <Loading />}
     </Container>
   );
 };
