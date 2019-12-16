@@ -93,7 +93,7 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
               // 정답 공개 flag false로 전환
               updatePubCorrectAnswerStatus(false);
               updateStatusChangeLoader(false);
-            }, 11000);
+            }, 15000);
           }
           updateStatusChangeLoader(false);
         }}
@@ -143,6 +143,16 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
                     },
                   });
                   message.info(`퀴즈 정보 반영 상태 : ${resp.status}`);
+                  const initAliveUsers = await opsService.initAliveParticipants({
+                    festivalId: id,
+                    quizID: item.quiz_id,
+                    isServer: false,
+                  });
+                  if (initAliveUsers.status === 200) {
+                    message.info(`생존자 상태 변경 상태 : ${initAliveUsers.status}`);
+                  } else {
+                    message.warning(`생존자 상태 변경 상태 : ${initAliveUsers.status}`);
+                  }
                 }}
               >
                 문제 적용
