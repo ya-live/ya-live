@@ -64,7 +64,21 @@ const QuizJoin: NextPage<Props> = ({ id }) => {
     return <SlLayout>정보 확인중</SlLayout>;
   }
 
-  if (operationInfo.status === EN_QUIZ_STATUS.PREPARE && haveUser && user) {
+  if (operationInfo.status === EN_QUIZ_STATUS.PREPARE && haveUser && user && user.email) {
+    // 이메일 확인 로직 추가
+    if (operationInfo.possibleEmailAddress) {
+      const emailDomain = user.email.split('@');
+      if (emailDomain[1] !== operationInfo.possibleEmailAddress) {
+        return (
+          <SlLayout>
+            <h3>죄송합니다</h3>
+            <p>{`@${operationInfo.possibleEmailAddress}`} 이메일이 아니면 참가할 수 없습니다.</p>
+            <p>로그아웃 후 {`@${operationInfo.possibleEmailAddress}`} 이메일로 로그인해주세요.</p>
+            <Button href={`/signin?redirect=/quiz/${id}/join`}>로그아웃 페이지로 이동</Button>
+          </SlLayout>
+        );
+      }
+    }
     return (
       <SlLayout>
         참가 가능
@@ -83,6 +97,9 @@ const QuizJoin: NextPage<Props> = ({ id }) => {
             });
             if (resp.status === 200 && resp.payload) {
               window.location.href = `/quiz/${id}/client/${user.uid}`;
+            } else if (resp.status === 401) {
+              // eslint-disable-next-line no-alert
+              alert('귀하의 이메일 계정으로는 참가할 수 없는 퀴즈입니다.');
             } else {
               // eslint-disable-next-line no-alert
               alert('준비중 상태가 아니라서 참가할 수 없습니다');

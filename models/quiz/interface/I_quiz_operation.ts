@@ -8,6 +8,9 @@ export interface QuizOperation {
   /** 제목? 노출할 글자? */
   title?: string;
 
+  /** 참가 가능한 이메일 주소 */
+  possibleEmailAddress?: string;
+
   /** 퀴즈 id(각 퀴즈를 구분하는 값) */
   quiz_id?: string;
   /** 퀴즈 타입 */
