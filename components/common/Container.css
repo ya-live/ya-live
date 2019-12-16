@@ -15,6 +15,10 @@
   height: 100%;
 }
 
+.fixedContainer {
+  position: fixed;
+}
+
 .heading {
   font-family: YanoljaSans, 나눔스퀘어, sans-serif;
   display: flex;

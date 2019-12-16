@@ -58,30 +58,24 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
 
   const isPossibleQuiz =
     quiz.status === EN_QUIZ_STATUS.QUIZ || quiz.status === EN_QUIZ_STATUS.COUNTDOWN;
-  const isDisabledSelect = !isPossibleQuiz || isFinishCount;
+  const isDisabledSelect = !isPossibleQuiz || isFinishCount || !user.alive;
 
   const renderFromStatus = () => {
     switch (quiz.status) {
-      case EN_QUIZ_STATUS.COUNTDOWN:
-        return (
-          <Countdown
-            className={styles.countdown}
-            active={quiz.status === EN_QUIZ_STATUS.COUNTDOWN}
-            quizTime={displayCount}
-          />
-        );
       case EN_QUIZ_STATUS.CALCULATE:
         return <Calculate />;
       case EN_QUIZ_STATUS.SHOW_RESULT:
         return (
-          <ShowResult
-            isResult={user.select === quiz.quiz_correct_answer}
-            result={
-              (quiz.quiz_selector &&
-                quiz.quiz_selector[(quiz.quiz_correct_answer || 0) - 1].title) ||
-              ''
-            }
-          />
+          user.alive && (
+            <ShowResult
+              isResult={user.select === quiz.quiz_correct_answer}
+              result={
+                (quiz.quiz_selector &&
+                  quiz.quiz_selector[(quiz.quiz_correct_answer || 0) - 1].title) ||
+                ''
+              }
+            />
+          )
         );
       default:
         return null;
@@ -90,6 +84,11 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
 
   return (
     <section className={clsx(styles.container, !isPossibleQuiz && styles.hidden)}>
+      <Countdown
+        className={styles.countdown}
+        active={quiz.status === EN_QUIZ_STATUS.COUNTDOWN && !isFinishCount}
+        quizTime={displayCount}
+      />
       <div className={styles.quizWrap}>
         <h1 className={styles.question}>{quiz.quiz_desc}</h1>
         {quiz.quiz_type === EN_QUIZ_TYPE.IMAGE && (
