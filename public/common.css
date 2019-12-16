@@ -106,6 +106,7 @@
 
 html {
   font-size: 62.5%;
+  user-select: none;
 }
 
 div#__next {

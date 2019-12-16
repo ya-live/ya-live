@@ -19,14 +19,14 @@ const Countdown: React.FC<CountdownProps> = ({ active, quizTime, className }) =>
     transform: `scaleX(${(COUNTDOWN - quizTime) / COUNTDOWN})`,
   });
   const containerStyle = useSpring({
-    transform: `translate3d(0, ${active ? '0' : '-100%'}, 0)`,
+    transform: `translateY(${active ? '0' : '-100%'})`,
   });
 
   return (
-    <animated.aside className={clsx(styles.countdown, className)} style={containerStyle}>
+    <animated.div className={clsx(styles.countdown, className)} style={containerStyle}>
       <animated.div className={styles.meter} style={gaugeStyle} />
       <span>COUNTDOWN! {Math.max(0, quizTime)}</span>
-    </animated.aside>
+    </animated.div>
   );
 };
 

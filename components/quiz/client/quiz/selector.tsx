@@ -42,13 +42,14 @@ const Selector: React.FC<SelectorProps> = ({
 
     return result === selector.no ? styles.failResult : styles.disabled;
   })();
+  const select = () => !isDisabled && onClick();
 
   return (
     <button
       className={clsx(styles.selector, isShowResult ? styleAfterResult : styleBeforeResult)}
       type="button"
       key={selector.no}
-      onClick={onClick}
+      onClick={select}
       disabled={isDisabled}
     >
       {selector.title}
