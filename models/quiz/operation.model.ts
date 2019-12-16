@@ -1,6 +1,23 @@
 import FirebaseAdmin from '../commons/firebase_admin.model';
 import { QuizOperation, QuizItem } from './interface/I_quiz_operation';
 
+async function findOperationInfo(args: { quiz_id: string }) {
+  const ref = FirebaseAdmin.getInstance()
+    .Firestore.collection('quiz')
+    .doc(args.quiz_id);
+  try {
+    const infoSnap = await ref.get();
+    // 정보가 존재하지 않으면 null 반환
+    if (infoSnap.exists === false) {
+      return null;
+    }
+    const oldData = infoSnap.data() as QuizOperation;
+    return oldData;
+  } catch (err) {
+    return null;
+  }
+}
+
 async function updateOperationInfo(args: { quiz_id: string; info: Partial<QuizOperation> }) {
   const ref = FirebaseAdmin.getInstance()
     .Firestore.collection('quiz')
@@ -161,6 +178,7 @@ async function initAliveParticipants({
 }
 
 export default {
+  findOperationInfo,
   initTotalParticipants,
   updateOperationInfo,
   getAllQuizFromBank,

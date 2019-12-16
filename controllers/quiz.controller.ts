@@ -8,6 +8,7 @@ import { QuizOperation } from '../models/quiz/interface/I_quiz_operation';
 import getStringValueFromQuery from './etc/get_value_from_query';
 import validateParamWithData from '../models/commons/req_validator';
 import JSCQuizOperation from '../models/quiz/jsc/quiz.operation.jsc';
+import memberModel from '../models/members/members.model';
 
 const log = debug('tjl:controller:quiz');
 
@@ -69,6 +70,21 @@ async function joinParticipant({
   log({ userId, quizId, body });
   if (!userId || !quizId || !body) {
     return res.status(400).end();
+  }
+  // 퀴즈 정보 조회
+  const quizInfo = await quizOpsModel.findOperationInfo({ quiz_id: quizId });
+  if (quizInfo === null) {
+    return res.status(404).end();
+  }
+  if (quizInfo.possibleEmailAddress) {
+    const userInfo = await memberModel.memberFind({ user_id: userId });
+    if (userInfo === null || userInfo.email === undefined) {
+      return res.status(404).end();
+    }
+    const emailDomain = userInfo.email.split('@');
+    if (emailDomain[1] !== quizInfo.possibleEmailAddress) {
+      return res.status(401).end();
+    }
   }
   // db 조회
   const resp = await participantsModel.joinParticipant({
