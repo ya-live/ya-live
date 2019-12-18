@@ -1,13 +1,14 @@
 .option {
   width: 100%;
-  border: 0.1rem solid var(--gray400);
+  background: var(--gray100);
   border-radius: 6.3rem;
+  display: flex;
+  justify-content: space-between;
   font-size: 3rem;
   line-height: 4.5rem;
   overflow: hidden;
-  padding: 0.7rem 3.2rem 0.9rem;
+  padding: 0.7rem 4rem 0.9rem;
   position: relative;
-  text-align: center;
 }
 .option + .option {
   margin-top: 2.4rem;
@@ -16,27 +17,23 @@
 .gauge {
   width: 100%;
   height: 100%;
-  background: var(--yablue100);
+  background: linear-gradient(to right, var(--yapink300) 33%, var(--yayellow100));
+  clip-path: inset(0 100% 0 0);
   position: absolute;
   top: 0;
   left: 0;
-  transform-origin: left;
 }
-
-@keyframes blink {
-  0% {
-    background: none;
-  }
-  100% {
-    background: var(--yayellow500);
-  }
-}
-.correctHighlight {
+.correctGauge {
   composes: gauge;
-  animation: blink 500ms ease infinite alternate;
+  background: var(--yayellow500);
+}
+.incorrectGauge {
+  composes: gauge;
+  background: var(--gray300);
 }
 
-.label {
+.label,
+.percentage {
   position: relative;
   z-index: 1;
 }
