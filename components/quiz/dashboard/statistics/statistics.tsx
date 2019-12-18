@@ -9,6 +9,8 @@ interface StatisticsProps {
   active: boolean;
 }
 
+const SURVIVOR_THRESHOLD = 5;
+
 const Statistics: React.FC<StatisticsProps> = ({ active }) => {
   const { id, quiz } = useContext(QuizContext);
   const [survivors, setSurvivors] = useState<QuizParticipant[]>([]);
@@ -17,7 +19,7 @@ const Statistics: React.FC<StatisticsProps> = ({ active }) => {
 
   const prevSurvivorCount = useRef(quiz.total_participants);
 
-  const survivorCountAnimated = useSpring({
+  const { value } = useSpring({
     config: {
       tension: 75,
       friction: 40,
@@ -42,7 +44,7 @@ const Statistics: React.FC<StatisticsProps> = ({ active }) => {
   }, [active, quiz.alive_participants]);
 
   useEffect(() => {
-    if (quiz.alive_participants > 4) {
+    if (quiz.alive_participants > SURVIVOR_THRESHOLD) {
       return;
     }
 
@@ -59,21 +61,28 @@ const Statistics: React.FC<StatisticsProps> = ({ active }) => {
   return (
     <animated.section className={styles.container} style={containerStyle}>
       <div>
-        <h1 className={styles.heading}>생존자</h1>
+        <h1 className={styles.heading}>
+          {quiz.alive_participants > SURVIVOR_THRESHOLD
+            ? '생존자'
+            : `최후의 ${quiz.alive_participants}인!`}
+        </h1>
         <div className={styles.counts}>
           <animated.p className={styles.survivorCount}>
-            {survivorCountAnimated.value.interpolate((x) => Math.round(x))}
+            {value.interpolate((x) => Math.round(x))}
           </animated.p>
-          {quiz.alive_participants > 4 && (
+          {quiz.alive_participants > SURVIVOR_THRESHOLD && (
             <p className={deathCount > 0 ? styles.deathCount : styles.revivalCount}>
               {deathCount > 0 ? '-' : '+'}
               {Math.abs(deathCount)}
             </p>
           )}
-          {quiz.alive_participants <= 4 &&
-            survivors.map((survivor, index) => (
-              <p key={survivor.id || index}>{survivor.displayName.split('_')[0]}</p>
-            ))}
+          {quiz.alive_participants <= SURVIVOR_THRESHOLD && (
+            <div className={styles.survivorNames}>
+              {survivors.map((survivor, index) => (
+                <p key={survivor.id || index}>{survivor.displayName.split('_')[0]}</p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </animated.section>
