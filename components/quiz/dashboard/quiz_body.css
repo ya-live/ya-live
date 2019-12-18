@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .yalive {
@@ -17,6 +18,7 @@
   right: 0;
   left: 0;
   text-align: center;
+  z-index: 8;
 }
 
 .wrap {

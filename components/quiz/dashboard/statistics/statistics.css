@@ -9,7 +9,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9;
+  z-index: 2;
 }
 
 .heading {
@@ -24,7 +24,8 @@
 }
 
 .survivorCount {
-  font-size: 4rem;
+  font-size: 8rem;
+  margin-top: 1.8rem;
 }
 
 .deathCount {
@@ -39,4 +40,17 @@
 .revivalCount {
   composes: deathCount;
   color: var(--yagreen500);
+}
+
+.survivorNames {
+  font-size: 4.8rem;
+  margin-top: 1.2rem;
+}
+.survivorNames p {
+  margin-bottom: 0.25rem;
+}
+
+.lastSurvivor {
+  font-size: 8rem;
+  margin-top: 1.2rem;
 }

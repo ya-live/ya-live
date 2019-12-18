@@ -13,9 +13,16 @@ interface SelectorsProps {
 }
 
 const Selectors: React.FC<SelectorsProps> = ({ answers, correctAnswer, options, status }) => {
-  const showAnswerPercentages =
+  const showAnswerPercentage =
     status === EN_QUIZ_STATUS.CALCULATE || status === EN_QUIZ_STATUS.SHOW_RESULT;
   const totalCount = answers.reduce((acc, cur) => acc + cur);
+
+  const makePercentage = (index: number): number | undefined => {
+    if (!showAnswerPercentage) {
+      return;
+    }
+    return totalCount ? answers[index] / totalCount : 0;
+  };
 
   return (
     <ul className={styles.container}>
@@ -24,7 +31,7 @@ const Selectors: React.FC<SelectorsProps> = ({ answers, correctAnswer, options, 
           key={option.no}
           correctAnswer={correctAnswer}
           option={option}
-          percentage={showAnswerPercentages && totalCount ? answers[index] / totalCount : 0}
+          percentage={makePercentage(index)}
           status={status}
         />
       ))}
