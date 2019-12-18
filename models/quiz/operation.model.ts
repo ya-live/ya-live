@@ -85,6 +85,37 @@ async function getAllQuizFromBank(args: { quiz_id: string }) {
   }
 }
 
+async function updateQuiz({
+  festivalId,
+  quizId,
+  quiz,
+}: {
+  festivalId: string;
+  quizId: string;
+  quiz: Partial<QuizItem>;
+}) {
+  try {
+    const snap = await FirebaseAdmin.getInstance()
+      .Firestore.collection('quiz')
+      .doc(festivalId)
+      .collection('quiz_bank')
+      .where('quiz_id', '==', quizId)
+      .get();
+
+    if (snap.empty) {
+      return null;
+    }
+
+    const quizRef = snap.docs[0].ref;
+    await quizRef.update(quiz);
+
+    const quizSnap = await quizRef.get();
+    return quizSnap.data() as QuizItem;
+  } catch (err) {
+    return null;
+  }
+}
+
 async function saveDeadStatus({ festivalId }: { festivalId: string }) {
   try {
     const festivalSnap = await FirebaseAdmin.getInstance()
@@ -182,6 +213,7 @@ export default {
   initTotalParticipants,
   updateOperationInfo,
   getAllQuizFromBank,
+  updateQuiz,
   saveDeadStatus,
   reviveCurrentRoundParticipants,
   initAliveParticipants,

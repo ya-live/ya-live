@@ -66,6 +66,32 @@ export async function findAllQuizFromBankForClient(args: { quiz_id: string; isSe
   }
 }
 
+export async function updateQuiz(args: {
+  festivalId: string;
+  quizId: string;
+  quiz: Partial<QuizItem>;
+  isServer: boolean;
+}) {
+  const { isServer } = args;
+  const hostAndPort: string = getBaseUrl(isServer);
+  const url = `${hostAndPort}/api/quiz/${args.festivalId}/quiz_bank/${args.quizId}`;
+
+  try {
+    const resp = await requester<QuizItem | null>({
+      option: {
+        url,
+        method: 'put',
+        data: args.quiz,
+      },
+    });
+    return resp;
+  } catch (err) {
+    return {
+      status: 500,
+    };
+  }
+}
+
 /** 퀴즈가 끝나면, 탈락자 처리를 진행한다. */
 export async function calculateQuizRound(args: { festivalId: string; isServer: boolean }) {
   const { isServer } = args;
