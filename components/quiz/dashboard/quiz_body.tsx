@@ -84,7 +84,9 @@ const QuizBody: React.FC = () => {
 
   useEffect(() => {
     if (quiz.status === EN_QUIZ_STATUS.CALCULATE || quiz.status === EN_QUIZ_STATUS.SHOW_RESULT) {
-      answers.every((answer) => answer === 0) && countParticipantAnswers(id, setAnswers);
+      if (answers.every((answer) => answer === 0)) {
+        countParticipantAnswers(id, setAnswers);
+      }
     } else {
       setAnswers([0, 0, 0, 0, 0]);
     }

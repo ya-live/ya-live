@@ -43,5 +43,14 @@
 }
 
 .survivorNames {
-  font-size: 2.4rem;
+  font-size: 4.8rem;
+  margin-top: 1.2rem;
+}
+.survivorNames p {
+  margin-bottom: 0.25rem;
+}
+
+.lastSurvivor {
+  font-size: 8rem;
+  margin-top: 1.2rem;
 }
