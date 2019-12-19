@@ -22,6 +22,7 @@ const QuizDashboard: NextPage<QuizDashboardProps> = ({ id }) => {
   useEffect(() => {
     sounds.current = {
       calculate: new Audio('/sfx/calculate.mp3'),
+      countdown: new Audio('/sfx/countdown.mp3'),
       ending: new Audio('/sfx/ending.mp3'),
       golden: new Audio('/sfx/golden.mp3'),
       idle: new Audio('/sfx/idle.mp3'),
@@ -63,6 +64,9 @@ const QuizDashboard: NextPage<QuizDashboardProps> = ({ id }) => {
         break;
       case EN_QUIZ_STATUS.CALCULATE:
         soundToPlay = sounds.current.calculate;
+        break;
+      case EN_QUIZ_STATUS.COUNTDOWN:
+        soundToPlay = sounds.current.countdown;
         break;
       case EN_QUIZ_STATUS.IDLE:
         if (!aliveParticipants || aliveParticipants > 5) {

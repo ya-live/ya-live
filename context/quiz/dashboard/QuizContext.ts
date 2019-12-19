@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { QuizOperation } from '@/models/quiz/interface/I_quiz_operation';
 
 export type SoundMap = Record<
-  'calculate' | 'ending' | 'golden' | 'idle' | 'last1' | 'last5' | 'quiz' | 'result',
+  'calculate' | 'countdown' | 'ending' | 'golden' | 'idle' | 'last1' | 'last5' | 'quiz' | 'result',
   HTMLAudioElement
 >;
 
