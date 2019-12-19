@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray500);
+  text-align: center;
+}
+
+.yalive {
+  color: var(--yapink500);
+  font-size: 6rem;
+  font-family: YanoljaSans, sans-serif;
+}

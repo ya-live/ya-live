@@ -9,45 +9,46 @@ import * as participantClient from '../../../models/quiz/participants.client.ser
 import styles from './body.css';
 
 const Prepare: React.FC = () => {
-  const { user } = useAuth();
+  const { initializing, user } = useAuth();
   const ctx = useContext(QuizClientContext);
   const email = user?.email || '';
 
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
-    (async () => {
-      if (!user) {
-        // eslint-disable-next-line no-alert
-        alert('잘못된 접근입니다. 다시 로그인해주세요.');
-        onClickSignOut();
+    !initializing &&
+      (async () => {
+        if (!user) {
+          // eslint-disable-next-line no-alert
+          alert('잘못된 접근입니다. 다시 로그인해주세요.');
+          onClickSignOut();
 
-        return;
-      }
+          return;
+        }
 
-      const resp = await participantClient.joinParticipantsForClient({
-        uid: user.uid,
-        quiz_id: ctx.quizID,
-        isServer: false,
-        info: {
-          id: ctx.quizID,
-          join: DateTime.local().toISO(),
-          alive: true,
-          displayName: user.displayName === null ? 'empty' : user.displayName,
-        },
-      });
+        const resp = await participantClient.joinParticipantsForClient({
+          uid: user?.uid || '',
+          quiz_id: ctx.quizID,
+          isServer: false,
+          info: {
+            id: ctx.quizID,
+            join: DateTime.local().toISO(),
+            alive: true,
+            displayName: user?.displayName || 'empty',
+          },
+        });
 
-      if (
-        resp.status === 401 ||
-        (ctx.quiz?.possibleEmailAddress &&
-          ctx.quiz?.possibleEmailAddress !== user.email?.split('@')[1])
-      ) {
-        // eslint-disable-next-line no-alert
-        alert('귀하의 이메일 계정으로는 참가할 수 없는 퀴즈입니다.');
-        onClickSignOut();
-      }
-    })();
+        if (
+          resp.status === 401 ||
+          (ctx.quiz?.possibleEmailAddress &&
+            ctx.quiz?.possibleEmailAddress !== user?.email?.split('@')[1])
+        ) {
+          // eslint-disable-next-line no-alert
+          alert('귀하의 이메일 계정으로는 참가할 수 없는 퀴즈입니다.');
+          onClickSignOut();
+        }
+      })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [initializing]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   async function onClickSignOut() {

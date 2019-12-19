@@ -9,35 +9,37 @@ import { useStoreDoc } from '../auth/hooks/firestore_hooks';
 import { QuizOperation } from '../../models/quiz/interface/I_quiz_operation';
 import { EN_QUIZ_STATUS } from '../../models/quiz/interface/EN_QUIZ_STATUS';
 
-async function onClickSignIn() {
-  const result = await FirebaseAuthClient.getInstance().signInWithGoogle();
-
-  if (result.user) {
-    const idToken = await result.user.getIdToken();
-    const findResp = await memberFind({ member_id: result.user.uid, isServer: false });
-    if (
-      !(findResp.status === 200 && findResp.payload && findResp.payload.uid === result.user.uid)
-    ) {
-      const { uid, displayName, email, phoneNumber, photoURL } = result.user;
-      const data: MemberInfo = {
-        uid,
-        displayName: displayName || undefined,
-        email: email || undefined,
-        phoneNumber: phoneNumber || undefined,
-        photoURL: photoURL || undefined,
-      };
-      await memberAdd({
-        data,
-        token: idToken,
-        isServer: false,
-      });
-    }
-  }
-}
-
 const Login: React.FC<{ quizID: string }> = ({ quizID }) => {
   const { docValue } = useStoreDoc({ collectionPath: 'quiz', docPath: quizID || 'none' });
   const quizInfo = docValue?.data() as QuizOperation;
+
+  async function onClickSignIn() {
+    const result = await FirebaseAuthClient.getInstance().signInWithGoogle();
+
+    if (result.user) {
+      const idToken = await result.user.getIdToken();
+      const findResp = await memberFind({ member_id: result.user.uid, isServer: false });
+
+      if (
+        !(findResp.status === 200 && findResp.payload && findResp.payload.uid === result.user.uid)
+      ) {
+        const { uid, displayName, email, phoneNumber, photoURL } = result.user;
+        const data: MemberInfo = {
+          uid,
+          displayName: displayName || undefined,
+          email: email || undefined,
+          phoneNumber: phoneNumber || undefined,
+          photoURL: photoURL || undefined,
+        };
+        await memberAdd({
+          data,
+          token: idToken,
+          isServer: false,
+        });
+      }
+      window.location.href = `/quiz/${quizID}/client/${result.user.uid}`;
+    }
+  }
 
   const renderBody = () => {
     if (!quizInfo) {
