@@ -42,7 +42,8 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
       }
 
       if (countdown === 3) {
-        window.navigator.vibrate([800, 200, 800, 200, 800]);
+        // eslint-disable-next-line no-unused-expressions
+        window.navigator.vibrate && window.navigator.vibrate([800, 200, 800, 200, 800]);
       }
 
       setDisplayCount(countdown);
@@ -73,17 +74,19 @@ const Quiz: React.FC<QuizProps> = ({ quiz, user }) => {
       case EN_QUIZ_STATUS.CALCULATE:
         return <Calculate />;
       case EN_QUIZ_STATUS.SHOW_RESULT:
+        if (!user.alive) {
+          return null;
+        }
+
         return (
-          user.alive && (
-            <ShowResult
-              isResult={user.select === quiz.quiz_correct_answer}
-              result={
-                (quiz.quiz_selector &&
-                  quiz.quiz_selector[(quiz.quiz_correct_answer || 0) - 1].title) ||
-                ''
-              }
-            />
-          )
+          <ShowResult
+            isResult={user.select === quiz.quiz_correct_answer}
+            result={
+              (quiz.quiz_selector &&
+                quiz.quiz_selector[(quiz.quiz_correct_answer || 0) - 1]?.title) ||
+              ''
+            }
+          />
         );
       default:
         return null;
