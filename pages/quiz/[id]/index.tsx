@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { useAuth } from '../../../components/auth/hooks/auth_hooks';
 import Container from '../../../components/common/Container';
 import Login from '../../../components/login/login';
 import getStringValueFromQuery from '../../../controllers/etc/get_value_from_query';
@@ -13,21 +12,11 @@ interface ClientLoginProps {
 /**
  * 참가자 로그인 / 대기 화면
  */
-const ClientLoginPage: NextPage<ClientLoginProps> = ({ quizID }) => {
-  const { haveUser, user } = useAuth();
-
-  useEffect(() => {
-    if (haveUser && user?.uid) {
-      window.location.href = `/quiz/${quizID}/client/${user?.uid}`;
-    }
-  }, [haveUser, quizID, user]);
-
-  return (
-    <Container>
-      <Login quizID={quizID || ''} />
-    </Container>
-  );
-};
+const ClientLoginPage: NextPage<ClientLoginProps> = ({ quizID }) => (
+  <Container>
+    <Login quizID={quizID || ''} />
+  </Container>
+);
 
 ClientLoginPage.getInitialProps = async ({ query }) => {
   const quizID = getStringValueFromQuery({ query, field: 'id' });
