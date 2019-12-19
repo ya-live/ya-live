@@ -9,7 +9,7 @@ const log = debug('tjl:api:quiz:participants:index');
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   // eslint-disable-next-line no-console
   const { method, query } = req;
-  log({method, query});
+  log({ method, query });
   console.log(query);
   if (method !== 'PUT') {
     res.status(404).end();
