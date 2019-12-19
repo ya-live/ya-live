@@ -265,6 +265,35 @@ async function reviveCurrentRoundParticipants({
   return res.json(resp);
 }
 
+/** 부활하기 - 많은 참가자가 죽었을 때, 참가자 모두 부활 */
+async function reviveAllParticipants({
+  query,
+  res,
+}: {
+  query: NextApiRequest['query'];
+  res: NextApiResponse;
+}) {
+  const festivalId = getStringValueFromQuery({ query, field: 'quiz_id' });
+  if (festivalId === undefined) {
+    return res.status(400).end();
+  }
+
+  const { result, data } = validateParamWithData<{ id: string }>(
+    { id: festivalId },
+    JSCQuizOperation,
+  );
+  if (!result) {
+    return res.status(400).end();
+  }
+
+  const resp = await quizOpsModel.reviveAllParticipants({ festivalId: data.id });
+  log('[revive all]: ', resp);
+  if (resp === null) {
+    return res.status(500).end();
+  }
+  return res.json(resp);
+}
+
 /** 생존자의 선택 번호와 퀴즈번호를 설정한다. */
 async function initAliveUser({
   query,
@@ -297,5 +326,6 @@ export default {
   updateQuiz,
   calculateRound,
   reviveCurrentRoundParticipants,
+  reviveAllParticipants,
   initAliveUser,
 };

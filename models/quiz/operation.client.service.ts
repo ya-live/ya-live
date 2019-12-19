@@ -137,7 +137,28 @@ export async function reviveCurrentRoundParticipants(args: {
   }
 }
 
-/** 탈락자가 많이 발생했을 때, 부활 */
+/** 탈락자가 많이 발생했을 때, 전체 부활 */
+export async function reviveAllParticipants(args: { festivalId: string; isServer: boolean }) {
+  const { isServer } = args;
+  const hostAndPort: string = getBaseUrl(isServer);
+  const url = `${hostAndPort}/api/quiz/${args.festivalId}/revive/all`;
+
+  try {
+    const resp = await requester<QuizOperation | null>({
+      option: {
+        url,
+        method: 'post',
+      },
+    });
+    return resp;
+  } catch (err) {
+    return {
+      status: 500,
+    };
+  }
+}
+
+/** 참가자 상태 초기화 */
 export async function initAliveParticipants(args: {
   festivalId: string;
   quizID: string;
