@@ -12,13 +12,19 @@ import Countdown from '../dashboard/countdown';
 
 const Quiz: React.FC = () => {
   const ctx = useContext(QuizClientContext);
-  const [selectedNo, setSelectedNo] = useState(ctx.user?.alive ? ctx.user?.select || -1 : -1);
+  const [selectedNo, setSelectedNo] = useState(
+    ctx.user?.alive && ctx.user?.currentQuizID === ctx.quiz?.quiz_id ? ctx.user?.select || -1 : -1,
+  );
   const [disabled, setDisabled] = useState(false); // 선택하고 user.select 업데이트 되기까지 disabled
   const [isFinishCount, setIsFinishCount] = useState(false);
   const [displayCount, setDisplayCount] = useState(10);
 
   useEffect(() => {
-    setSelectedNo(ctx.user?.alive ? ctx.user?.select || -1 : -1);
+    setSelectedNo(
+      ctx.user?.alive && ctx.user?.currentQuizID === ctx.quiz?.quiz_id
+        ? ctx.user?.select || -1
+        : -1,
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx.user]);
 
@@ -72,7 +78,7 @@ const Quiz: React.FC = () => {
       case EN_QUIZ_STATUS.CALCULATE:
         return <Calculate />;
       case EN_QUIZ_STATUS.SHOW_RESULT:
-        if (!ctx.user?.alive) {
+        if (!ctx.user?.alive && ctx.user?.currentQuizID !== ctx.quiz.quiz_id) {
           return null;
         }
 
