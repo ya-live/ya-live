@@ -52,6 +52,7 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
   const [statusChangeLoader, updateStatusChangeLoader] = useState(false);
   const [quizData, updateQuizData] = useState<QuizItem[]>();
   const [pubCorrectAnswerStatus, updatePubCorrectAnswerStatus] = useState(false);
+  const [calWrongAnswerStatus, updateCalWrongAnswerStatus] = useState(false);
   const { docValue: info } = useStoreDoc({ collectionPath: 'quiz', docPath: id });
 
   const operationInfo: QuizOperation = (() => {
@@ -64,6 +65,60 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
     }
     return initData;
   })();
+
+  async function pubQuizAnswer() {
+    const findQuiz = quizData?.find((fv) => fv.quiz_id === operationInfo.quiz_id);
+    if (findQuiz === undefined) {
+      message.warn('퀴즈 정보를 찾지 못했습니다.');
+      return;
+    }
+    const resp = await opsService.updateQuizOpsForClient({
+      quiz_id: id,
+      isServer: false,
+      info: {
+        quiz_correct_answer: findQuiz.quiz_correct_answer,
+      },
+    });
+    updatePubCorrectAnswerStatus(true);
+    message.info(`퀴즈 정보 반영 상태 : ${resp.status}`);
+  }
+
+  async function calWrongAnswer() {
+    const resp = await opsService.calculateQuizRound({
+      festivalId: id,
+      isServer: false,
+    });
+    if (resp === null) {
+      message.warn('정산 실패!!!');
+      return;
+    }
+    message.success('정산 완료');
+
+    // 정산 이벤트 때, 해당 퀴즈는 사용처리한다.
+    const usedQuiz = await opsService.updateQuiz({
+      festivalId: id,
+      quizId: operationInfo.quiz_id!,
+      quiz: { use: true },
+      isServer: false,
+    });
+
+    if (usedQuiz.status === 200) {
+      message.success(`${operationInfo.quiz_id} 퀴즈 사용 상태 변경 성공`);
+      const updatedQuizList = quizData !== undefined ? quizData : [];
+      const quizIndex = updatedQuizList.findIndex(
+        (quiz) => quiz.quiz_id === usedQuiz.payload?.quiz_id,
+      );
+
+      if (quizIndex !== undefined) {
+        updatedQuizList[quizIndex] = usedQuiz.payload!;
+      }
+
+      updateQuizData(updatedQuizList);
+    } else {
+      message.warn(`${operationInfo.quiz_id} 퀴즈 사용 상태 변경 실패`);
+    }
+    updateCalWrongAnswerStatus(true);
+  }
 
   const statusSwitch = (() => {
     const buttons = statusButtons({ status: operationInfo.status });
@@ -85,16 +140,27 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
             setTimeout(async () => {
               message.info('job done');
               updateStatusChangeLoader(true);
-              await opsService.updateQuizOpsForClient({
-                quiz_id: id,
-                isServer: false,
-                info: {
-                  status: EN_QUIZ_STATUS.CALCULATE,
-                },
-              });
-              // 정답 공개 flag false로 전환
-              updatePubCorrectAnswerStatus(false);
-              updateStatusChangeLoader(false);
+              try {
+                await opsService.updateQuizOpsForClient({
+                  quiz_id: id,
+                  isServer: false,
+                  info: {
+                    status: EN_QUIZ_STATUS.CALCULATE,
+                  },
+                });
+                // 정답 공개 flag false로 전환
+                updatePubCorrectAnswerStatus(false);
+                // 오답자 계신 flag false로 전환
+                updateCalWrongAnswerStatus(false);
+
+                await pubQuizAnswer();
+                await calWrongAnswer();
+
+                updateStatusChangeLoader(false);
+              } catch (err) {
+                // eslint-disable-next-line no-alert
+                alert('CALCULATE 상태 처리 과정에서 문제 발생');
+              }
             }, 15000);
           }
           updateStatusChangeLoader(false);
@@ -178,31 +244,9 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
 
   // 정답공개 버튼
   const publishQuizCorrectAnswer = (() => {
-    if (
-      operationInfo.status === EN_QUIZ_STATUS.CALCULATE &&
-      operationInfo.quiz_id &&
-      pubCorrectAnswerStatus === false
-    ) {
+    if (operationInfo.status === EN_QUIZ_STATUS.CALCULATE && operationInfo.quiz_id) {
       return (
-        <Button
-          type="primary"
-          onClick={async () => {
-            const findQuiz = quizData?.find((fv) => fv.quiz_id === operationInfo.quiz_id);
-            if (findQuiz === undefined) {
-              message.warn('퀴즈 정보를 찾지 못했습니다.');
-              return;
-            }
-            const resp = await opsService.updateQuizOpsForClient({
-              quiz_id: id,
-              isServer: false,
-              info: {
-                quiz_correct_answer: findQuiz.quiz_correct_answer,
-              },
-            });
-            updatePubCorrectAnswerStatus(true);
-            message.info(`퀴즈 정보 반영 상태 : ${resp.status}`);
-          }}
-        >
+        <Button type="primary" disabled={pubCorrectAnswerStatus === true} onClick={pubQuizAnswer}>
           정답 공개
         </Button>
       );
@@ -212,49 +256,12 @@ const QuizHeadQuarter: NextPage<Props> = ({ id }) => {
 
   // 정답자를 카운트한다.
   const calCorrectAnswer = (() => {
-    if (
-      operationInfo.status === EN_QUIZ_STATUS.CALCULATE &&
-      operationInfo.quiz_id &&
-      pubCorrectAnswerStatus === true
-    ) {
+    if (operationInfo.status === EN_QUIZ_STATUS.CALCULATE && operationInfo.quiz_id) {
       return (
         <Button
+          disabled={!(pubCorrectAnswerStatus === true && calWrongAnswerStatus === false)}
           type="primary"
-          onClick={async () => {
-            const resp = await opsService.calculateQuizRound({
-              festivalId: id,
-              isServer: false,
-            });
-            if (resp === null) {
-              message.warn('정산 실패!!!');
-              return;
-            }
-            message.success('정산 완료');
-
-            // 정산 이벤트 때, 해당 퀴즈는 사용처리한다.
-            const usedQuiz = await opsService.updateQuiz({
-              festivalId: id,
-              quizId: operationInfo.quiz_id!,
-              quiz: { use: true },
-              isServer: false,
-            });
-
-            if (usedQuiz.status === 200) {
-              message.success(`${operationInfo.quiz_id} 퀴즈 사용 상태 변경 성공`);
-              const updatedQuizList = quizData !== undefined ? quizData : [];
-              const quizIndex = updatedQuizList.findIndex(
-                (quiz) => quiz.quiz_id === usedQuiz.payload?.quiz_id,
-              );
-
-              if (quizIndex !== undefined) {
-                updatedQuizList[quizIndex] = usedQuiz.payload!;
-              }
-
-              updateQuizData(updatedQuizList);
-            } else {
-              message.warn(`${operationInfo.quiz_id} 퀴즈 사용 상태 변경 실패`);
-            }
-          }}
+          onClick={calWrongAnswer}
         >
           오답자 계산
         </Button>
