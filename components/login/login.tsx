@@ -49,7 +49,6 @@ const Login: React.FC<{ quizID: string }> = ({ quizID }) => {
     if (quizInfo.status === EN_QUIZ_STATUS.PREPARE || quizInfo.status === EN_QUIZ_STATUS.INIT) {
       return (
         <>
-          2019
           <span className={styles.yalive}>
             yalive
             <span role="img" aria-label="gift">
@@ -57,7 +56,7 @@ const Login: React.FC<{ quizID: string }> = ({ quizID }) => {
             </span>
           </span>
           <div className={styles.loginDesc}>
-            주인공이 되고 싶다면 지금 바로
+            참여하고 싶다면
             <Button className={styles.loginBtn} onClick={onClickSignIn}>
               login
             </Button>
