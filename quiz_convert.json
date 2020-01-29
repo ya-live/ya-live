@@ -1,1475 +1,179 @@
 [
     {
-        "quiz_id": "Q01",
-        "quiz_desc": "야놀자 본사의 주소는 서울특별시 강남구 0000 108길 42이다",
+        "quiz_id": "q00",
+        "quiz_desc": "요즘 대세 캐릭터로 자이언트펭 TV의 주인공은 누구일까요?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "테헤란로"
+                "title": "뽀로로"
             },
             {
                 "no": 2,
-                "title": "강남대로"
+                "title": "펭수"
             },
             {
                 "no": 3,
-                "title": "영동대로"
+                "title": "펭이"
             },
             {
                 "no": 4,
-                "title": "올림픽대로"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q02",
-        "quiz_desc": "퀴즈 진행자의 성함은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "이병주"
-            },
-            {
-                "no": 2,
-                "title": "이병우"
-            },
-            {
-                "no": 3,
-                "title": "이병수"
-            },
-            {
-                "no": 4,
-                "title": "이병무"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q03",
-        "quiz_desc": "레저큐가 첫 자체 개발한 도심형 투어패스는 ‘ㅇㅇ 야놀자 패스’이다.",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "낙성대"
-            },
-            {
-                "no": 2,
-                "title": "홍대"
-            },
-            {
-                "no": 3,
-                "title": "이대"
-            },
-            {
-                "no": 4,
-                "title": "건대"
+                "title": "살쾡이"
             }
         ],
         "quiz_correct_answer": 2,
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q04",
-        "quiz_desc": "인터넷 상에서 타인에게 공격적이고 불쾌한 내용으로 화를 일으키는 행위는?",
+        "quiz_id": "q01",
+        "quiz_desc": "영화 스타워즈의 캐릭터가 아닌 것은?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "트롤링"
+                "title": "R2D2"
             },
             {
                 "no": 2,
-                "title": "구글링"
+                "title": "C-3PO"
             },
             {
                 "no": 3,
-                "title": "저글링"
+                "title": "루크 스카이워커"
             },
             {
                 "no": 4,
-                "title": "크리링"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q05",
-        "quiz_desc": "동시다발적으로 FTA를 체결할 경우 활용률이 낮아지는 현상은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "햄버거효과"
-            },
-            {
-                "no": 2,
-                "title": "문어발효과"
-            },
-            {
-                "no": 3,
-                "title": "거미줄효과"
-            },
-            {
-                "no": 4,
-                "title": "누들볼효과"
+                "title": "젤다"
             }
         ],
         "quiz_correct_answer": 4,
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q06",
-        "quiz_desc": "야놀자가 올해 9월 인수한 호텔 및 레스토랑 예약 플랫폼의 이름으로 올바른 것은?",
+        "quiz_id": "q02",
+        "quiz_desc": "야놀자의 광고 모델이 아닌 사람은 누구일까요?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "호텔데일리"
+                "title": "조정석"
             },
             {
                 "no": 2,
-                "title": "호텔나우"
+                "title": "태연"
             },
             {
                 "no": 3,
-                "title": "나우호텔"
-            },
-            {
-                "no": 4,
-                "title": "데일리호텔"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q07",
-        "quiz_desc": "R.E.S.T의 해당하는 단어 중 틀린 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "R - Refresh"
-            },
-            {
-                "no": 2,
-                "title": "E - Entertain"
-            },
-            {
-                "no": 3,
-                "title": "S - Stay"
-            },
-            {
-                "no": 4,
-                "title": "T - Tour"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q08",
-        "quiz_desc": "야놀자 상품권을 담당하는 회사로 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "쿠팡"
-            },
-            {
-                "no": 2,
-                "title": "티몬"
-            },
-            {
-                "no": 3,
-                "title": "차이"
-            },
-            {
-                "no": 4,
-                "title": "페이코"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q09",
-        "quiz_desc": " 야놀자와 함께 MDM타워에 입주해있는 회사는?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "티몬"
-            },
-            {
-                "no": 2,
-                "title": "하이네켄"
-            },
-            {
-                "no": 3,
-                "title": "Bighit"
-            },
-            {
-                "no": 4,
-                "title": "JYP"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q10",
-        "quiz_desc": "한국계 미국인은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "토니안"
-            },
-            {
-                "no": 2,
-                "title": "존박"
-            },
-            {
-                "no": 3,
-                "title": "폴킴"
-            },
-            {
-                "no": 4,
-                "title": "케이티킴"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q11",
-        "quiz_desc": "야놀자에서 업무용 툴로 사용하는 것이 아닌 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "Slack"
-            },
-            {
-                "no": 2,
-                "title": "Confluence"
-            },
-            {
-                "no": 3,
-                "title": "Jira"
-            },
-            {
-                "no": 4,
-                "title": "Hangout"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q12",
-        "quiz_desc": "장성규가 진행하는 유튜브 채널의 이름은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "와썹맨"
-            },
-            {
-                "no": 2,
-                "title": "러닝맨"
-            },
-            {
-                "no": 3,
-                "title": "워크맨"
-            },
-            {
-                "no": 4,
-                "title": "토크맨"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q13",
-        "quiz_desc": "로댕의 ‘생각하는 사람’은 어떤 신체부위로 턱을 받치고 있을까요?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "오른손"
-            },
-            {
-                "no": 2,
-                "title": "왼손"
-            },
-            {
-                "no": 3,
-                "title": "오른발"
-            },
-            {
-                "no": 4,
-                "title": "왼발"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q14",
-        "quiz_desc": "‘관직 없이 한가롭게 사는 사람’, ‘돈 잘 쓰고 잘 노는 이’를 비유적으로 이르는 말은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "백수"
-            },
-            {
-                "no": 2,
-                "title": "한량"
-            },
-            {
-                "no": 3,
-                "title": "우리 오빠"
-            },
-            {
-                "no": 4,
-                "title": "롤모델"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q15",
-        "quiz_desc": "야놀자를 대표하는 핑크 컬러의 HEX로 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "##FF3478"
-            },
-            {
-                "no": 2,
-                "title": "##OO2D79"
-            },
-            {
-                "no": 3,
-                "title": "#151515"
-            },
-            {
-                "no": 4,
-                "title": "#FFFFFF"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q16",
-        "quiz_desc": "메리서커스마스 이벤트 컨텐츠가 아닌 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "YALIVE"
-            },
-            {
-                "no": 2,
-                "title": "버나 돌리기"
-            },
-            {
-                "no": 3,
-                "title": "메모리부스 사진 촬영"
-            },
-            {
-                "no": 4,
-                "title": "프립 체험"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q17",
-        "quiz_desc": "야놀자에서 자체 제작한 PB상품 브랜드의 이름으로 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "좋은숙박연습소"
-            },
-            {
-                "no": 2,
-                "title": "좋은숙소연구소"
-            },
-            {
-                "no": 3,
-                "title": "좋은숙박연구소"
-            },
-            {
-                "no": 4,
-                "title": "좋은숙박연습소"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q18",
-        "quiz_desc": "야놀자의 광고 모델 ‘육성재’가 속한 그룹은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "BTOB"
-            },
-            {
-                "no": 2,
-                "title": "BTOC"
-            },
-            {
-                "no": 3,
-                "title": "O2O"
-            },
-            {
-                "no": 4,
-                "title": "TVXQ"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q19",
-        "quiz_desc": " 야놀자의 인재상이 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "Active Runner"
-            },
-            {
-                "no": 2,
-                "title": "Problem Solver"
-            },
-            {
-                "no": 3,
-                "title": "Problem Designer"
-            },
-            {
-                "no": 4,
-                "title": "Solo Player"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q20",
-        "quiz_desc": "피플파트너실에서 진행한 ‘detox’ 프로그램 중 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "복부 비만 Detox"
-            },
-            {
-                "no": 2,
-                "title": "방해 독소 Detox"
-            },
-            {
-                "no": 3,
-                "title": "미간 주름 Botox"
-            },
-            {
-                "no": 4,
-                "title": "회식 폭식 Detox"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q21",
-        "quiz_desc": "다음 중 여성 소설가가 아닌 사람은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "<도가니> 공지영"
-            },
-            {
-                "no": 2,
-                "title": "<동백꽃> 김유정"
-            },
-            {
-                "no": 3,
-                "title": "<토지> 박경리"
-            },
-            {
-                "no": 4,
-                "title": "<그 많던 싱아는 누가 다 먹었을까> 박완서"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q22",
-        "quiz_desc": "다음 중 박물관의 이름과 위치한 나라가 잘못 짝지어진 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "영국 - 대영 박물관"
-            },
-            {
-                "no": 2,
-                "title": "프랑스 - 루브르 박물관"
-            },
-            {
-                "no": 3,
-                "title": "독일 - 에르미타주 박물관"
-            },
-            {
-                "no": 4,
-                "title": "오스트리아 - 빈 미술사 박물관"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q23",
-        "quiz_desc": "야놀자의 브랜드가 아닌 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "H AVENUE"
-            },
-            {
-                "no": 2,
-                "title": "HOTEL YAJA"
-            },
-            {
-                "no": 3,
-                "title": "HOTEL YAM"
-            },
-            {
-                "no": 4,
-                "title": "HEY GROUND"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q24",
-        "quiz_desc": "야놀자가 제휴한 간편 결제 앱 차이의 영어로 올바른 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "CAI"
-            },
-            {
-                "no": 2,
-                "title": "CHIA"
-            },
-            {
-                "no": 3,
-                "title": "CHAI"
-            },
-            {
-                "no": 4,
-                "title": "CHAE"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q25",
-        "quiz_desc": "식권대장 가게 중 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "후레시짐"
-            },
-            {
-                "no": 2,
-                "title": "짜왕"
-            },
-            {
-                "no": 3,
-                "title": "롭스플레이트"
-            },
-            {
-                "no": 4,
-                "title": "희래등"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q26",
-        "quiz_desc": "경의중앙선이 지나는 지하철역이 아닌 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "가좌역"
-            },
-            {
-                "no": 2,
-                "title": "강매역"
-            },
-            {
-                "no": 3,
-                "title": "청량리역"
-            },
-            {
-                "no": 4,
-                "title": "평내호평역"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q27",
-        "quiz_desc": "흔히 성가시고 귀찮은 일이 생겼을 때 ‘골치가 아프다’라고 말하는데 여기서 ‘골치’란 우리 몸의 어디를 가리킬까요?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "어금니"
-            },
-            {
-                "no": 2,
-                "title": "척추"
-            },
-            {
-                "no": 3,
-                "title": "뇌"
-            },
-            {
-                "no": 4,
-                "title": "엉덩이"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q28",
-        "quiz_desc": "7층 회의실의 도시 이름으로 맞는 곳은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "암스테르담"
-            },
-            {
-                "no": 2,
-                "title": "룩셈부르크"
-            },
-            {
-                "no": 3,
-                "title": "아르헨티나"
-            },
-            {
-                "no": 4,
-                "title": "시드니"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q29",
-        "quiz_desc": "예약배송이 가능한 ‘프레시코드’의 메뉴로 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "리코타 허버허버 샐러드"
-            },
-            {
-                "no": 2,
-                "title": "아쉬파 샐러드"
-            },
-            {
-                "no": 3,
-                "title": "핫치킨 샐러드"
-            },
-            {
-                "no": 4,
-                "title": "아이스 맛있구마"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q30",
-        "quiz_desc": "아이돌그룹 EXO의 노래 <으르렁>에서 ‘으르렁’이라는 가사가 몇 번 나오는가?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "24번"
-            },
-            {
-                "no": 2,
-                "title": "36번"
-            },
-            {
-                "no": 3,
-                "title": "48번"
-            },
-            {
-                "no": 4,
-                "title": "60번"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q31",
-        "quiz_desc": "2019년 야놀자가 기부한 내역 중, 야놀자의 기부처가 아닌 곳은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "한국백혈병어린이재단"
-            },
-            {
-                "no": 2,
-                "title": "초록우산 어린이재단"
-            },
-            {
-                "no": 3,
-                "title": "구세군 누리홈"
-            },
-            {
-                "no": 4,
-                "title": "코리아스타트업포럼"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q32",
-        "quiz_desc": "딩고 프리스타일에서 84년생 래퍼들이 모여 ‘다모임’을 결성했다",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "더콰이엇"
-            },
-            {
-                "no": 2,
-                "title": "염따"
-            },
-            {
-                "no": 3,
-                "title": "허클베리피"
-            },
-            {
-                "no": 4,
-                "title": "사이먼도미닉"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q33",
-        "quiz_desc": "캐롤 ‘All I want for Christmas is You’의 마지막 가사는?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "baby"
-            },
-            {
-                "no": 2,
-                "title": "yes"
-            },
-            {
-                "no": 3,
-                "title": "you"
-            },
-            {
-                "no": 4,
-                "title": "christmas"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q34",
-        "quiz_desc": "이번 4분기 때 해외 법인이 생겼습니다! 어떤 나라에 생겼을까요?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "태국"
-            },
-            {
-                "no": 2,
-                "title": "홍콩"
-            },
-            {
-                "no": 3,
-                "title": "싱가포르"
-            },
-            {
-                "no": 4,
-                "title": "필리핀"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q35",
-        "quiz_desc": "PMS 사업부는 어떤 말의 줄임말일까요?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "Product Management System"
-            },
-            {
-                "no": 2,
-                "title": "Process Multi-functional System"
-            },
-            {
-                "no": 3,
-                "title": "Property Management System"
-            },
-            {
-                "no": 4,
-                "title": "Program Manipulate System"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q36",
-        "quiz_desc": "1627년 (인조) 만주에 본거를 둔 후금의 침입으로 일어난 조선과 후금 사이의 전쟁인 이것은 무엇일까요?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "정묘호란"
-            },
-            {
-                "no": 2,
-                "title": "병자호란"
-            },
-            {
-                "no": 3,
-                "title": "병인양요"
-            },
-            {
-                "no": 4,
-                "title": "신미양요"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q37",
-        "quiz_desc": "서울특별시 광진구 자양동과 송파구 신천동을 잇는 한강의 다리는?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "잠실대교"
-            },
-            {
-                "no": 2,
-                "title": "양화대교"
-            },
-            {
-                "no": 3,
-                "title": "성수대교"
-            },
-            {
-                "no": 4,
-                "title": "천호대교"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q38",
-        "quiz_desc": "2019년 9월에 인수한 이지 테크노시스의 영문 이름으로 올바른 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "eZee Technosys"
-            },
-            {
-                "no": 2,
-                "title": "easy Technosys"
-            },
-            {
-                "no": 3,
-                "title": "EZ Technosys"
-            },
-            {
-                "no": 4,
-                "title": "Eji Technosys"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q39",
-        "quiz_desc": "야놀자는 2020년 기준 창립 ㅇㅇ주년이다! 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "13"
-            },
-            {
-                "no": 2,
-                "title": "14"
-            },
-            {
-                "no": 3,
-                "title": "15"
-            },
-            {
-                "no": 4,
-                "title": "16"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q40",
-        "quiz_desc": "소의 새끼는 송아지, 닭의 새끼는 병아리, 그렇다면 꿩의 새끼는?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "꺼실이"
-            },
-            {
-                "no": 2,
-                "title": "꺼병이"
-            },
-            {
-                "no": 3,
-                "title": "꺼봉이"
-            },
-            {
-                "no": 4,
-                "title": "꺼벙이"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q41",
-        "quiz_desc": "1997년 12월에 체결된 지구온난화 온실가스 감축목표에 관한 기후변화 협약서인 이것은 무엇일까요?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "교토의정서"
-            },
-            {
-                "no": 2,
-                "title": "파리의정서"
-            },
-            {
-                "no": 3,
-                "title": "제네바의정서"
-            },
-            {
-                "no": 4,
-                "title": "텔아비브의정서"
-            }
-        ],
-        "quiz_correct_answer": 1,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q42",
-        "quiz_desc": "최근 11번째 유니콘이 된 기업은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "야놀자"
-            },
-            {
-                "no": 2,
-                "title": "에이프로젠"
-            },
-            {
-                "no": 3,
-                "title": "지피클럽"
-            },
-            {
-                "no": 4,
-                "title": "무신사"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q43",
-        "quiz_desc": "수진 님의 저서 이름으로 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "재스타트"
-            },
-            {
-                "no": 2,
-                "title": "리스타트"
-            },
-            {
-                "no": 3,
-                "title": "삼스타트"
-            },
-            {
-                "no": 4,
-                "title": "머스타드"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q44",
-        "quiz_desc": "야놀자가 동남아시아 지역 기반 호텔 체인 기업 ㅇㅇㅇ의 1대 주주 지위를 확보했습니다",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "룸펜스"
-            },
-            {
-                "no": 2,
-                "title": "젠룸스"
-            },
-            {
-                "no": 3,
-                "title": "룸캉스"
-            },
-            {
-                "no": 4,
-                "title": "바룸스"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q45",
-        "quiz_desc": "우리나라에서 운행된 열차의 이름이 아닌 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "통일호"
-            },
-            {
-                "no": 2,
-                "title": "진달래호"
-            },
-            {
-                "no": 3,
-                "title": "비둘기호"
-            },
-            {
-                "no": 4,
-                "title": "관광호"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q46",
-        "quiz_desc": "여태까지 Culture & Grow 팀에서 진행한 이벤트가 아닌 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "야놀짠"
-            },
-            {
-                "no": 2,
-                "title": "꿀떡데이"
-            },
-            {
-                "no": 3,
-                "title": "사또야 먹자"
-            },
-            {
-                "no": 4,
-                "title": "놀캉스"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q47",
-        "quiz_desc": "야놀자가 새롭게 런칭한 신규 자동화 솔루션의 이름은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "WHY FLUX"
-            },
-            {
-                "no": 2,
-                "title": "Y FLUX"
-            },
-            {
-                "no": 3,
-                "title": "YA FLUX"
-            },
-            {
-                "no": 4,
-                "title": "YO FLUX"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q48",
-        "quiz_desc": "비투비 멤버 중 현재 군인이 맞는 사람은?",
-        "quiz_selector": [
-            {
-                "no": 1,
                 "title": "육성재"
             },
             {
-                "no": 2,
-                "title": "이창섭"
-            },
-            {
-                "no": 3,
-                "title": "프니엘"
-            },
-            {
                 "no": 4,
-                "title": "정일훈"
+                "title": "하니"
             }
         ],
         "quiz_correct_answer": 2,
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q49",
-        "quiz_desc": "택시 번호판의 색깔은?",
+        "quiz_id": "q03",
+        "quiz_desc": "마켓컬리의 광고 모델은 누구일까요?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "녹색"
+                "title": "전지현"
             },
             {
                 "no": 2,
-                "title": "흰색"
+                "title": "청하"
             },
             {
                 "no": 3,
-                "title": "노란색"
+                "title": "안철수"
             },
             {
                 "no": 4,
-                "title": "파란색"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q50",
-        "quiz_desc": "지하철 1칸의 일반석 1줄은 몇 인용일까요?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "6인용"
-            },
-            {
-                "no": 2,
-                "title": "7인용"
-            },
-            {
-                "no": 3,
-                "title": "8인용"
-            },
-            {
-                "no": 4,
-                "title": "9인용"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q51",
-        "quiz_desc": "야놀자에서 진행하고 있는 기부 활동 중, 캡슐 커피가 비치된 구역의 단말기에 사원증 태그를 통해  기부금을  지급하는 기부 활동의 명으로 알맞은 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "커피 Donation Cafe"
-            },
-            {
-                "no": 2,
-                "title": "야놀자 Donation Cafe"
-            },
-            {
-                "no": 3,
-                "title": "야놀자 Coffee Give Cafe"
-            },
-            {
-                "no": 4,
-                "title": "야놀자 Donation Coffee Cafe"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q52",
-        "quiz_desc": "야놀자가 이번 대한민국 광고대상에서 3관왕의 영예를 얻었습니다",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "1991"
-            },
-            {
-                "no": 2,
-                "title": "1992"
-            },
-            {
-                "no": 3,
-                "title": "1993"
-            },
-            {
-                "no": 4,
-                "title": "1994"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q53",
-        "quiz_desc": "교류회로에서 인가 전압 및 회로에 흐르는 전류의 비율을 의미하며 회로 전류가 흐르기 어려운 정도를 나타내는 용어는?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "옴"
-            },
-            {
-                "no": 2,
-                "title": "볼트"
-            },
-            {
-                "no": 3,
-                "title": "임피던스"
-            },
-            {
-                "no": 4,
-                "title": "줄"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q54",
-        "quiz_desc": "게임 <슈퍼마리오>에서 마리오의 직업은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "목수"
-            },
-            {
-                "no": 2,
-                "title": "개발자"
-            },
-            {
-                "no": 3,
-                "title": "배관공"
-            },
-            {
-                "no": 4,
-                "title": "정원사"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q55",
-        "quiz_desc": "다음 중 시인 ‘백석’의 시가 아닌 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "여승"
-            },
-            {
-                "no": 2,
-                "title": "다른 하늘"
-            },
-            {
-                "no": 3,
-                "title": "여우난곬족"
-            },
-            {
-                "no": 4,
-                "title": "나와 나타샤와 흰 당나귀"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q56",
-        "quiz_desc": "순 우리말이 맞는 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "담배"
-            },
-            {
-                "no": 2,
-                "title": "물론"
-            },
-            {
-                "no": 3,
-                "title": "별안간"
-            },
-            {
-                "no": 4,
-                "title": "장마"
-            }
-        ],
-        "quiz_correct_answer": 3,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q57",
-        "quiz_desc": "원뿔의 부피를 구하는 공식은 ⅓ X π X () X 높이 이다",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "r"
-            },
-            {
-                "no": 2,
-                "title": "r^2"
-            },
-            {
-                "no": 3,
-                "title": "f(x)"
-            },
-            {
-                "no": 4,
-                "title": "rl"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q58",
-        "quiz_desc": "경제적 여유를 가지고 예술적 가치를 중시하는 개화된 엘리트를 칭하는 용어는?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "보거스"
-            },
-            {
-                "no": 2,
-                "title": "보보스"
-            },
-            {
-                "no": 3,
-                "title": "파로마"
-            },
-            {
-                "no": 4,
-                "title": "파고다"
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q59",
-        "quiz_desc": "지적 창작물을 수정, 복사, 공유하는 것을 자유롭게 할 수 있는 것을 뜻하는 말은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "카피프리"
-            },
-            {
-                "no": 2,
-                "title": "카피레프트"
-            },
-            {
-                "no": 3,
-                "title": "카피올라잇"
-            },
-            {
-                "no": 4,
-                "title": "카피어베일러블 "
-            }
-        ],
-        "quiz_correct_answer": 2,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q60",
-        "quiz_desc": "국제영화제와 최고상 명칭이 틀리게 연결된 것은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "베니스영화제 - 황금사자상"
-            },
-            {
-                "no": 2,
-                "title": "베를린영화제 - 황금곰상"
-            },
-            {
-                "no": 3,
-                "title": "칸영화제 - 황금종려상"
-            },
-            {
-                "no": 4,
-                "title": "선댄스영화제 -황금사슴상"
-            }
-        ],
-        "quiz_correct_answer": 4,
-        "quiz_type": "TEXT"
-    },
-    {
-        "quiz_id": "Q61",
-        "quiz_desc": "러시아의 작곡가로 ‘발레곡의 대가’라고 불리는 이 인물은?",
-        "quiz_selector": [
-            {
-                "no": 1,
-                "title": "표트르 차이코프스키"
-            },
-            {
-                "no": 2,
-                "title": "표도르 도스토프예스키"
-            },
-            {
-                "no": 3,
-                "title": "이반 페트로비치 파블로프"
-            },
-            {
-                "no": 4,
-                "title": "므스티슬라프 레오폴도비치 로스트로포비치"
+                "title": "황교안"
             }
         ],
         "quiz_correct_answer": 1,
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q62",
+        "quiz_id": "q04",
+        "quiz_desc": "다음 중 구글이 현재 서비스 중인 서비스는 무엇일까요?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "Google +"
+            },
+            {
+                "no": 2,
+                "title": "Google Code"
+            },
+            {
+                "no": 3,
+                "title": "Picasa"
+            },
+            {
+                "no": 4,
+                "title": "Gmail"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q05",
+        "quiz_desc": "다음 중 디자이너가 아닌 사람은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "조나단 아이브"
+            },
+            {
+                "no": 2,
+                "title": "피터 슈라이어"
+            },
+            {
+                "no": 3,
+                "title": "순다 피차이"
+            },
+            {
+                "no": 4,
+                "title": "마크 제이콥스"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q06",
+        "quiz_desc": "어벤져스에 나오지 않는 히어로는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "스파이더맨"
+            },
+            {
+                "no": 2,
+                "title": "배트맨"
+            },
+            {
+                "no": 3,
+                "title": "아이언맨"
+            },
+            {
+                "no": 4,
+                "title": "앤트맨"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q07",
         "quiz_desc": "노벨 문학상을 수상한 사람이 아닌 사람은?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "밥딜런"
+                "title": "밥 딜런"
             },
             {
                 "no": 2,
@@ -1488,8 +192,8 @@
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q63",
-        "quiz_desc": "야구에서 포수와 투수 조합을 뜻하는 단어는?",
+        "quiz_id": "q08",
+        "quiz_desc": "야구에서 포수와 투수 조합을 뜻하는 말은?",
         "quiz_selector": [
             {
                 "no": 1,
@@ -1512,75 +216,1131 @@
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q64",
-        "quiz_desc": "다음중 숫자 1182를 이진법으로 올바르게 표현한 것은?",
+        "quiz_id": "q09",
+        "quiz_desc": "순 우리말이 맞는 것은?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "10010011110"
+                "title": "담배"
             },
             {
                 "no": 2,
-                "title": "10010011111"
+                "title": "물론"
             },
             {
                 "no": 3,
-                "title": "10010010110"
+                "title": "별안간"
             },
             {
                 "no": 4,
-                "title": "10010010100"
+                "title": "장마"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q10",
+        "quiz_desc": "영화 기생충에서 제시카 역할을 한 배우는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "박소담"
+            },
+            {
+                "no": 2,
+                "title": "박소현"
+            },
+            {
+                "no": 3,
+                "title": "박상원"
+            },
+            {
+                "no": 4,
+                "title": "박현빈"
             }
         ],
         "quiz_correct_answer": 1,
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q65",
-        "quiz_desc": "실제로 존재하는 과일은?",
+        "quiz_id": "q11",
+        "quiz_desc": "을사늑약이 있던 해는?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "멜론모야"
+                "title": "1906"
             },
             {
                 "no": 2,
-                "title": "체리모야"
+                "title": "1905"
             },
             {
                 "no": 3,
-                "title": "오렌지모야"
+                "title": "1904"
             },
             {
                 "no": 4,
-                "title": "바나나모야"
+                "title": "1903"
             }
         ],
         "quiz_correct_answer": 2,
         "quiz_type": "TEXT"
     },
     {
-        "quiz_id": "Q66",
-        "quiz_desc": "야놀자의 IP 주소는?",
+        "quiz_id": "q12",
+        "quiz_desc": "다음 중 밀짚모자 해적단이 아닌 캐릭터는?",
         "quiz_selector": [
             {
                 "no": 1,
-                "title": "13.209.150.32"
+                "title": "조로"
             },
             {
                 "no": 2,
-                "title": "14.209.150.32"
+                "title": "우솝"
             },
             {
                 "no": 3,
-                "title": "15.209.150.32"
+                "title": "흰수염"
             },
             {
                 "no": 4,
-                "title": "16.209.150.32"
+                "title": "쵸파"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q13",
+        "quiz_desc": "슈퍼 마리오 관련 설명 중 틀린 점은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "마리오는 배관공이다"
+            },
+            {
+                "no": 2,
+                "title": "피치는 공주다"
+            },
+            {
+                "no": 3,
+                "title": "요시는 요다의 친구다"
+            },
+            {
+                "no": 4,
+                "title": "쿠파는 등껍질이 있다"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q14",
+        "quiz_desc": "우유가 들어간 커피가 아닌 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "카페 라떼"
+            },
+            {
+                "no": 2,
+                "title": "카푸치노"
+            },
+            {
+                "no": 3,
+                "title": "스페니쉬 라떼"
+            },
+            {
+                "no": 4,
+                "title": "아메리카노"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q15",
+        "quiz_desc": "김연아가 광고하지 않은 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "KB국민은행"
+            },
+            {
+                "no": 2,
+                "title": "안다르"
+            },
+            {
+                "no": 3,
+                "title": "뉴발란스"
+            },
+            {
+                "no": 4,
+                "title": "맥심 화이트골드"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q16",
+        "quiz_desc": "장유진 작가의 단편이 아닌 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "일의 기쁨과 슬픔"
+            },
+            {
+                "no": 2,
+                "title": "새벽의 방문자들"
+            },
+            {
+                "no": 3,
+                "title": "탐페레 공항"
+            },
+            {
+                "no": 4,
+                "title": "헬싱키 공항"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q17",
+        "quiz_desc": "다음 중 핑클의 멤버가 아닌 사람은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "옥주현"
+            },
+            {
+                "no": 2,
+                "title": "이효리"
+            },
+            {
+                "no": 3,
+                "title": "이진"
+            },
+            {
+                "no": 4,
+                "title": "유진"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q18",
+        "quiz_desc": "중국집 인기 메뉴 간짜장에서 간의 의미는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "재료를 볶은"
+            },
+            {
+                "no": 2,
+                "title": "물기가 없는"
+            },
+            {
+                "no": 3,
+                "title": "간장을 넣은"
+            },
+            {
+                "no": 4,
+                "title": "달캴프라이가 올라간"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q19",
+        "quiz_desc": "다음 중 실제로 존재하지 않는 식물은 무엇일까요?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "조낸쉬름"
+            },
+            {
+                "no": 2,
+                "title": "개쉽사리"
+            },
+            {
+                "no": 3,
+                "title": "민머리씨방"
+            },
+            {
+                "no": 4,
+                "title": "가시파대가리"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q20",
+        "quiz_desc": "미국 보안업체 조사 결과 5년 연속 선정된 최악의 비밀번호는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "oooo"
+            },
+            {
+                "no": 2,
+                "title": "123456"
+            },
+            {
+                "no": 3,
+                "title": "qwer123"
+            },
+            {
+                "no": 4,
+                "title": "password"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q21",
+        "quiz_desc": "장어 한 관은 몇 kg일까요?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "3.75"
+            },
+            {
+                "no": 2,
+                "title": "1000"
+            },
+            {
+                "no": 3,
+                "title": "2.75"
+            },
+            {
+                "no": 4,
+                "title": "1.75"
             }
         ],
         "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q22",
+        "quiz_desc": "세금 중 '개소세'는 무엇의 줄임말일까?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "개와 소 세마리"
+            },
+            {
+                "no": 2,
+                "title": "개인소장세금"
+            },
+            {
+                "no": 3,
+                "title": "개인소비세"
+            },
+            {
+                "no": 4,
+                "title": "개별소비세"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q23",
+        "quiz_desc": "택배차량을 분류하는 번호판 문자 표시는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "택"
+            },
+            {
+                "no": 2,
+                "title": "배"
+            },
+            {
+                "no": 3,
+                "title": "차"
+            },
+            {
+                "no": 4,
+                "title": "량"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q24",
+        "quiz_desc": "다음 중 맥주의 재료가 될 수 없는 것은? ",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "보리"
+            },
+            {
+                "no": 2,
+                "title": "홉"
+            },
+            {
+                "no": 3,
+                "title": "물"
+            },
+            {
+                "no": 4,
+                "title": "피자"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q25",
+        "quiz_desc": "해외 점포에서 자주 볼 수 있는 24/7은 무슨 의미일까?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "연중무휴"
+            },
+            {
+                "no": 2,
+                "title": "7시에 오픈"
+            },
+            {
+                "no": 3,
+                "title": "하루 7시간만 운영"
+            },
+            {
+                "no": 4,
+                "title": "하루 7시간은 휴점"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q26",
+        "quiz_desc": "현행법상 대한민국 영토에 포함이 안되는 곳은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "제주"
+            },
+            {
+                "no": 2,
+                "title": "독도"
+            },
+            {
+                "no": 3,
+                "title": "북한"
+            },
+            {
+                "no": 4,
+                "title": "만주"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q27",
+        "quiz_desc": "지하철 6호선 <응암역>의 공식 영문 표기는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "Yes, I Know"
+            },
+            {
+                "no": 2,
+                "title": "Eungah"
+            },
+            {
+                "no": 3,
+                "title": "Eungam"
+            },
+            {
+                "no": 4,
+                "title": "Eungarm"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q28",
+        "quiz_desc": "다음중 올바른 외래어 표기는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "후라이드치킨"
+            },
+            {
+                "no": 2,
+                "title": "후라이드치킹"
+            },
+            {
+                "no": 3,
+                "title": "푸라이드치킨"
+            },
+            {
+                "no": 4,
+                "title": "프라이드치킨"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q29",
+        "quiz_desc": "마들렌의 어원으로 올바른 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "마늘이 들어가서"
+            },
+            {
+                "no": 2,
+                "title": "발견한 사람의 고향"
+            },
+            {
+                "no": 3,
+                "title": "프랑스 소녀의 이름"
+            },
+            {
+                "no": 4,
+                "title": "조개의 종류"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q30",
+        "quiz_desc": "다음 중 일반적으로 명함에 포함되는 정보가 아닌 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "이름"
+            },
+            {
+                "no": 2,
+                "title": "나이"
+            },
+            {
+                "no": 3,
+                "title": "주소"
+            },
+            {
+                "no": 4,
+                "title": "전화번호"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q31",
+        "quiz_desc": "집에서 운동하는 사람들을 부르는 말은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "집돌이"
+            },
+            {
+                "no": 2,
+                "title": "홈프족"
+            },
+            {
+                "no": 3,
+                "title": "홈트족"
+            },
+            {
+                "no": 4,
+                "title": "홈동족"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q32",
+        "quiz_desc": "퍼블릭 클라우드 벤더가 아닌 곳은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "야놀자"
+            },
+            {
+                "no": 2,
+                "title": "구글"
+            },
+            {
+                "no": 3,
+                "title": "아마존"
+            },
+            {
+                "no": 4,
+                "title": "네이버"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q33",
+        "quiz_desc": "반달곰을 귀엽게 부르는 말'로 국어 사전에 등재된 말은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "달곰이"
+            },
+            {
+                "no": 2,
+                "title": "곰돌이"
+            },
+            {
+                "no": 3,
+                "title": "반달이"
+            },
+            {
+                "no": 4,
+                "title": "곰반이"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q34",
+        "quiz_desc": "증시에서 투자금이 한꺼번에 빠져나가는 경우를 일컫는 말은",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "헤파이토스"
+            },
+            {
+                "no": 2,
+                "title": "레비티쿠스"
+            },
+            {
+                "no": 3,
+                "title": "져지스"
+            },
+            {
+                "no": 4,
+                "title": "엑소더스"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q35",
+        "quiz_desc": "제법 마음에 들 만하다'는 뜻의 순우리말은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "죠으다"
+            },
+            {
+                "no": 2,
+                "title": "맵자하다"
+            },
+            {
+                "no": 3,
+                "title": "무람없다"
+            },
+            {
+                "no": 4,
+                "title": "마뜩하다"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q36",
+        "quiz_desc": "위대한 과학자 '뉴턴'의 또 다른 직업은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "소작농"
+            },
+            {
+                "no": 2,
+                "title": "조폐국 장관"
+            },
+            {
+                "no": 3,
+                "title": "오케스트라 지휘자"
+            },
+            {
+                "no": 4,
+                "title": "우편 배달부"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q37",
+        "quiz_desc": "현의 수가 가장 적은 악기는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "바이올린"
+            },
+            {
+                "no": 2,
+                "title": "아쟁"
+            },
+            {
+                "no": 3,
+                "title": "얼후"
+            },
+            {
+                "no": 4,
+                "title": "가야금"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q38",
+        "quiz_desc": "거북이는 추울 때 OOOO",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "이불을 덮는다"
+            },
+            {
+                "no": 2,
+                "title": "털옷을 입는다"
+            },
+            {
+                "no": 3,
+                "title": "등껍질에 숨는다"
+            },
+            {
+                "no": 4,
+                "title": "눈물을 흘린다"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q39",
+        "quiz_desc": "다음 보기 중 가장 이빨이 많은 생명체는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "달팽이"
+            },
+            {
+                "no": 2,
+                "title": "조개"
+            },
+            {
+                "no": 3,
+                "title": "상어"
+            },
+            {
+                "no": 4,
+                "title": "인간"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q40",
+        "quiz_desc": "세계 최초의 해저 레스토랑은 어느 나라에 있을까?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "필리핀"
+            },
+            {
+                "no": 2,
+                "title": "몰디브"
+            },
+            {
+                "no": 3,
+                "title": "하와이"
+            },
+            {
+                "no": 4,
+                "title": "바티칸"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q41",
+        "quiz_desc": "한국영화 최초로 1편에 이어 2편도 천만 관객을 동원한 영화 시리즈는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "친구"
+            },
+            {
+                "no": 2,
+                "title": "탐정"
+            },
+            {
+                "no": 3,
+                "title": "신과함께"
+            },
+            {
+                "no": 4,
+                "title": "부산행"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q42",
+        "quiz_desc": "모국어로 세계에서 가장 많이 사용되는 언어는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "영어"
+            },
+            {
+                "no": 2,
+                "title": "중국어"
+            },
+            {
+                "no": 3,
+                "title": "스페인어"
+            },
+            {
+                "no": 4,
+                "title": "프랑스어"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q43",
+        "quiz_desc": "설화 중 하나로 태조 이성계에게 죽임을 당한 아기장수는 누구일까?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "상투리"
+            },
+            {
+                "no": 2,
+                "title": "까투리"
+            },
+            {
+                "no": 3,
+                "title": "우투리"
+            },
+            {
+                "no": 4,
+                "title": "무수리"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q44",
+        "quiz_desc": "다음 중 '북한'을 소재로 한 영화가 아닌 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "암살"
+            },
+            {
+                "no": 2,
+                "title": "공작"
+            },
+            {
+                "no": 3,
+                "title": "베를린"
+            },
+            {
+                "no": 4,
+                "title": "강철비"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q45",
+        "quiz_desc": "고바우'의 뜻은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "인색한 사람을 속되게 이르는 말"
+            },
+            {
+                "no": 2,
+                "title": "못된 짓을 마구하며 돌아다니는 사람"
+            },
+            {
+                "no": 3,
+                "title": "공과 같이 순하고 듬직한 사람"
+            },
+            {
+                "no": 4,
+                "title": "오랜 친구"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q46",
+        "quiz_desc": "연어가 수면으로 뛰어오르는 이유는?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "기생충을 떼어내려고"
+            },
+            {
+                "no": 2,
+                "title": "물기를 털어내려고"
+            },
+            {
+                "no": 3,
+                "title": "숨을 쉬려고"
+            },
+            {
+                "no": 4,
+                "title": "낚시꾼을 약올리려고"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q47",
+        "quiz_desc": "골프장에 소속되어 있는 캐디를 부르는 말은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "하우스 캐디"
+            },
+            {
+                "no": 2,
+                "title": "시몬스 캐디"
+            },
+            {
+                "no": 3,
+                "title": "나이스 캐디"
+            },
+            {
+                "no": 4,
+                "title": "로하스 캐디"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q48",
+        "quiz_desc": "가장 진한 연필 심은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "HB"
+            },
+            {
+                "no": 2,
+                "title": "H"
+            },
+            {
+                "no": 3,
+                "title": "2B"
+            },
+            {
+                "no": 4,
+                "title": "4B"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q49",
+        "quiz_desc": "우리 집은 보리차 대신 OOOO을 마셔",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "둥글래차"
+            },
+            {
+                "no": 2,
+                "title": "둥굴레차"
+            },
+            {
+                "no": 3,
+                "title": "등굴레차"
+            },
+            {
+                "no": 4,
+                "title": "둥글레차"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q50",
+        "quiz_desc": "비닐을 태울 때 나오는 맹독성 발암 물질은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "엔돌핀"
+            },
+            {
+                "no": 2,
+                "title": "아르기닌"
+            },
+            {
+                "no": 3,
+                "title": "다이옥신"
+            },
+            {
+                "no": 4,
+                "title": "셀룰로오스"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q51",
+        "quiz_desc": "1일이 OOO으로 시작하는 달에는 언제나 13일의 금요일이 있다",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "일요일"
+            },
+            {
+                "no": 2,
+                "title": "월요일"
+            },
+            {
+                "no": 3,
+                "title": "금요일"
+            },
+            {
+                "no": 4,
+                "title": "토요일"
+            }
+        ],
+        "quiz_correct_answer": 1,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q52",
+        "quiz_desc": "우리 몸에 있는 근육 이름이 아닌 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "이두박근"
+            },
+            {
+                "no": 2,
+                "title": "능형근"
+            },
+            {
+                "no": 3,
+                "title": "전형근"
+            },
+            {
+                "no": 4,
+                "title": "대흉근"
+            }
+        ],
+        "quiz_correct_answer": 3,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q53",
+        "quiz_desc": "심하게 맞거나 부딪혔을 경우, 살갗 속에 퍼렇게 맺히는 것은?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "때"
+            },
+            {
+                "no": 2,
+                "title": "멍"
+            },
+            {
+                "no": 3,
+                "title": "한"
+            },
+            {
+                "no": 4,
+                "title": "눈물"
+            }
+        ],
+        "quiz_correct_answer": 2,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q54",
+        "quiz_desc": "말레이시아의 수도 '쿠알라룸푸르'는 현지어로 무슨 뜻일까?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "마르지 않는 샘"
+            },
+            {
+                "no": 2,
+                "title": "바다의 끝"
+            },
+            {
+                "no": 3,
+                "title": "넓은 강"
+            },
+            {
+                "no": 4,
+                "title": "흙탕물의 합류"
+            }
+        ],
+        "quiz_correct_answer": 4,
+        "quiz_type": "TEXT"
+    },
+    {
+        "quiz_id": "q55",
+        "quiz_desc": "광년(光年)은 무엇을 재는 단위일까?",
+        "quiz_selector": [
+            {
+                "no": 1,
+                "title": "정신"
+            },
+            {
+                "no": 2,
+                "title": "시간"
+            },
+            {
+                "no": 3,
+                "title": "거리"
+            },
+            {
+                "no": 4,
+                "title": "빛의 양"
+            }
+        ],
+        "quiz_correct_answer": 3,
         "quiz_type": "TEXT"
     }
 ]

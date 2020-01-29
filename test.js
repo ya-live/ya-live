@@ -42,7 +42,7 @@ var text = fs.readFileSync('./quiz_convert.json', 'utf8');
 var parsed = JSON.parse(text);
 var collectionRef = firebase_admin_model_1["default"].getInstance()
     .Firestore.collection('quiz')
-    .doc('circusmas')
+    .doc('ㅇㄱㅇㅁ')
     .collection('quiz_bank');
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var _i, parsed_1, data;

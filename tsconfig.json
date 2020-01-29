@@ -23,5 +23,5 @@
     "target": "es2017"
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "convertText2JSON.js"]
+  "include": ["**/*.ts", "**/*.tsx", "convertText2JSON.js", "convertText2JSONv2.js"]
 }
