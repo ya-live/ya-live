@@ -30,7 +30,7 @@ const Cover: React.FC<CoverProps> = ({ active, status }) => {
   return (
     <animated.section className={styles.container} style={containerStyle}>
       <div>
-        <h1 className={styles.heading}>yalive</h1>
+        <h1 className={styles.heading}>YAQUIZ</h1>
         {caption && (
           <p className={styles.caption}>
             <span className={styles.highlight}>{caption}</span>
