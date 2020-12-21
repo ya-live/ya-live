@@ -1,12 +1,12 @@
-import { NextPage } from 'next';
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
-import { useStoreDoc } from '@/components/auth/hooks/firestore_hooks';
-import { QuizOperation } from '@/models/quiz/interface/I_quiz_operation';
-import getStringValueFromQuery from '@/controllers/etc/get_value_from_query';
+import { NextPage } from 'next';
+import { EN_QUIZ_STATUS } from '@/models/quiz/interface/EN_QUIZ_STATUS';
 import { QuizContext, SoundMap } from '@/context/quiz/dashboard/QuizContext';
 import QuizBody from '@/components/quiz/dashboard/quiz_body';
-import { EN_QUIZ_STATUS } from '@/models/quiz/interface/EN_QUIZ_STATUS';
+import { QuizOperation } from '@/models/quiz/interface/I_quiz_operation';
+import getStringValueFromQuery from '@/controllers/etc/get_value_from_query';
+import { useStoreDoc } from '@/components/auth/hooks/firestore_hooks';
 
 interface QuizDashboardProps {
   /** 퀴즈 id */
@@ -106,7 +106,7 @@ const QuizDashboard: NextPage<QuizDashboardProps> = ({ id }) => {
       value={{ id, currentSoundRef: currentSound, sounds: sounds.current, quiz }}
     >
       <Head>
-        <title>YaLive Dashboard{quiz?.title && ` - ${quiz.title}`}</title>
+        <title>YAQUIZ Dashboard{quiz?.title && ` - ${quiz.title}`}</title>
       </Head>
       <QuizBody />
     </QuizContext.Provider>

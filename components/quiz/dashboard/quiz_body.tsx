@@ -1,14 +1,15 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import { QuizContext } from '@/context/quiz/dashboard/QuizContext';
-import { EN_QUIZ_STATUS } from '@/models/quiz/interface/EN_QUIZ_STATUS';
-import Cover from './cover';
-import styles from './quiz_body.css';
-import QuizDesc from './quiz_desc';
-import Selectors, { QuizAnswers } from './selectors';
-import FirebaseAuthClient from '@/models/commons/firebase_auth_client.model';
-import { QuizParticipant } from '@/models/quiz/interface/I_quiz_participant';
 import Countdown, { COUNTDOWN } from './countdown';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import Selectors, { QuizAnswers } from './selectors';
+
+import Cover from './cover';
+import { EN_QUIZ_STATUS } from '@/models/quiz/interface/EN_QUIZ_STATUS';
+import FirebaseAuthClient from '@/models/commons/firebase_auth_client.model';
+import { QuizContext } from '@/context/quiz/dashboard/QuizContext';
+import QuizDesc from './quiz_desc';
+import { QuizParticipant } from '@/models/quiz/interface/I_quiz_participant';
 import Statistics from './statistics';
+import styles from './quiz_body.css';
 
 const isItCoverable = (status: EN_QUIZ_STATUS): boolean => {
   switch (status) {
@@ -97,7 +98,7 @@ const QuizBody: React.FC = () => {
 
   return (
     <section className={styles.container}>
-      <h1 className={styles.yalive}>yalive</h1>
+      <h1 className={styles.yalive}>YAQUIZ</h1>
       <Cover active={coverActive} status={quiz.status} />
       <Statistics active={quiz.status === EN_QUIZ_STATUS.IDLE} />
       <Countdown

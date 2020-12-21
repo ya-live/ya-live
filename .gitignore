@@ -13,3 +13,4 @@ public/static
 keys
 .env
 now.json
+.vercel

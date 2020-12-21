@@ -1,13 +1,13 @@
-import { Button } from 'antd';
-import React from 'react';
+import { memberAdd, memberFind } from '../../models/members/members.client.service';
 
+import { Button } from 'antd';
+import { EN_QUIZ_STATUS } from '../../models/quiz/interface/EN_QUIZ_STATUS';
 import FirebaseAuthClient from '../../models/commons/firebase_auth_client.model';
 import { MemberInfo } from '../../models/members/interfaces/memberInfo';
-import { memberAdd, memberFind } from '../../models/members/members.client.service';
+import { QuizOperation } from '../../models/quiz/interface/I_quiz_operation';
+import React from 'react';
 import styles from './login.css';
 import { useStoreDoc } from '../auth/hooks/firestore_hooks';
-import { QuizOperation } from '../../models/quiz/interface/I_quiz_operation';
-import { EN_QUIZ_STATUS } from '../../models/quiz/interface/EN_QUIZ_STATUS';
 
 const Login: React.FC<{ quizID: string }> = ({ quizID }) => {
   const { docValue } = useStoreDoc({ collectionPath: 'quiz', docPath: quizID || 'none' });
@@ -50,7 +50,7 @@ const Login: React.FC<{ quizID: string }> = ({ quizID }) => {
       return (
         <>
           <span className={styles.yalive}>
-            yalive
+            YAQUIZ
             <span role="img" aria-label="gift">
               🎁
             </span>
