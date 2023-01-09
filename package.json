@@ -20,7 +20,7 @@
     "debug": "^4.1.1",
     "dotenv-webpack": "^1.7.0",
     "firebase": "^6.3.5",
-    "firebase-admin": "^8.8.0",
+    "firebase-admin": "^11.4.1",
     "json-schema": "^0.2.5",
     "luxon": "^1.17.2",
     "next": "^9.1.4",
